@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Italo Queiroz]]></title>
   <link href="http://italoqueiroz.github.com/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
-  <updated>2012-10-04T00:17:32-03:00</updated>
+  <updated>2012-10-04T02:23:06-03:00</updated>
   <id>http://italoqueiroz.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Italo Queiroz]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Blog, GitHub Pages e suas malandragens]]></title>
+    <link href="http://italoqueiroz.github.com/blog/2012/10/04/primeiro-post/"/>
+    <updated>2012-10-04T00:55:00-03:00</updated>
+    <id>http://italoqueiroz.github.com/blog/2012/10/04/primeiro-post</id>
+    <content type="html"><![CDATA[<p>A uma semana atrás vi que era possível criar um blog hospedado pelo <a href="http://pages.github.com">GitHub Pages</a>
+<span style='text-decoration:line-through;'>(sei que estou atrasado)</span> usando
+<strong><a href="http://jekyllrb.com">Jekyll</a></strong> e
+<strong><a href="http://octopress.org">Octopress</a></strong>.</p>
+
+<p>Na tentativa o maior problema encontrado foi a atualização do Ruby para a versão 1.9.2, que após algumas &#8220;googladas&#8221; consegui resolver facilmente com <a href="https://rvm.io">RVM</a>,
+<span style='text-decoration:line-through;'>mentira tive que atualizar o XCode e instalar umas extensões para linha de comando</span>.</p>
+
+<p>Com este blog pretendo na medida do possível compartilhar alguns conhecimentos (e se você me conhece pessoalmente deve estar dizendo &#8220;quase nenhum&#8221;) e ferramentas que encontro em minhas pesquisas diárias&#8230;</p>
+]]></content>
+  </entry>
   
 </feed>
