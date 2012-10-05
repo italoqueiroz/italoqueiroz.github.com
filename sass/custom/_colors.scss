@@ -9,13 +9,23 @@ body {
   > div {
       background: #EEE !important;
     > div {
-      background: #EEE !important;
+      background: #FFF !important;
     }
+  }
+  > article {
+	background: #FFF !important;
   }
 }
 
 
 $header-bg: #EEE;
+
+/*NAVIGATION**/
+$noise-bg: #EEE !important;
+$nav-bg: #EEE !default;
+$nav-bg-front: #EEE;
+$nav-bg-back:  #EEE !default;
+
 
 $title-color: #606A6E !default;
 $subtitle-color: #666 !default;

@@ -1,0 +1,19 @@
+---
+layout: post
+title: "Meteor"
+date: 2012-10-04 20:09
+comments: true
+categories: [Meteor, Javascript, HandleBars, jQuery]
+---
+
+Durante meu momentos de estudo me deparei com uma framework pra lá de curiosa, ela simplesmente prometia uma programação no lado servidor e no lado cliente usando somente Javascript e trabalhando de forma reativa: qualquer alteração realizada na página seria imediatamente populada em todos os outros clientes.
+
+Até então não tinha acredito muito bem, e mesmo que possível, imaginei que fosse uma dificuldade imensa para configurar a máquina. Leigo engano logo após ver os vídeos de demonstração no site fiquei absurdamente surpreso. No momento de sua instalação não tive nenhum problema, sendo possível ainda baixar e rodar projetos demos.
+
+  
+<a href="http://meteor.com">Meteor</a> tem um conjunto de pacotes que podem ser adicionados ao projeto. <br />
+ Ex: <a href="http://www.mongodb.org/">mongoDB</a>, <a href="http://handlebarsjs.com/">HandleBars</a>, <a href="http://nodejs.org/">Node.js</a>, <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, entre outros...
+
+Para entender melhor como funcionava montei um <a href="http://pt.wikipedia.org/wiki/Kanban">Kanban</a> <span class="bobagem">criei o repositório "kanbam" com  "m", sorry</span> onde os usuários vão adicionando tarefas e movendo-as pelo quadro.
+
+Segue o link do "<a href="https://github.com/italoqueiroz/kanbam">kanbam</a>" no GitHub.
