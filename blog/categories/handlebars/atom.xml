@@ -4,7 +4,7 @@
   <title><![CDATA[Category: HandleBars | Italo Queiroz]]></title>
   <link href="http://italoqueiroz.github.com/blog/categories/handlebars/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
-  <updated>2012-10-04T23:57:26-03:00</updated>
+  <updated>2012-10-05T11:02:16-03:00</updated>
   <id>http://italoqueiroz.github.com/</id>
   <author>
     <name><![CDATA[Italo Queiroz]]></name>
@@ -18,7 +18,7 @@
     <link href="http://italoqueiroz.github.com/blog/2012/10/04/meteor/"/>
     <updated>2012-10-04T20:09:00-03:00</updated>
     <id>http://italoqueiroz.github.com/blog/2012/10/04/meteor</id>
-    <content type="html"><![CDATA[<p>Durante meu momentos de estudo me deparei com uma framework pra lá de curiosa, ela simplesmente prometia uma programação no lado servidor e no lado cliente usando somente Javascript e trabalhando de forma reativa: qualquer alteração realizada na página seria imediatamente populada em todos os outros clientes.</p>
+    <content type="html"><![CDATA[<p>Durante meus momentos de estudo me deparei com uma framework pra lá de curiosa, ela simplesmente prometia uma programação no lado servidor e no lado cliente usando somente Javascript e trabalhando de forma reativa: qualquer alteração realizada na página seria imediatamente populada em todos os outros clientes.</p>
 
 <p>Até então não tinha acredito muito bem, e mesmo que possível, imaginei que fosse uma dificuldade imensa para configurar a máquina. Leigo engano logo após ver os vídeos de demonstração no site fiquei absurdamente surpreso. No momento de sua instalação não tive nenhum problema, sendo possível ainda baixar e rodar projetos demos.</p>
 
