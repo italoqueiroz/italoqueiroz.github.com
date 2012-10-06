@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: HandleBars | Italo Queiroz]]></title>
-  <link href="http://italoqueiroz.github.com/blog/categories/handlebars/atom.xml" rel="self"/>
+  <title><![CDATA[Category: EJS | Italo Queiroz]]></title>
+  <link href="http://italoqueiroz.github.com/blog/categories/ejs/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
   <updated>2012-10-06T11:36:35-03:00</updated>
   <id>http://italoqueiroz.github.com/</id>
@@ -49,25 +49,6 @@
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Mas creio que para saber como funciona esse lance de template JS a melhor opção seja o EJS, é mais tranquilo de trabalhar (com coisas simples), caso a idéia (como é a do nosso framework) seja mexer com vários componentes criando helpers e plugins aconselho o HandleBars por ter uma documentação mais vasta já que ele veio do Mustache.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Meteor]]></title>
-    <link href="http://italoqueiroz.github.com/blog/2012/10/04/meteor/"/>
-    <updated>2012-10-04T20:09:00-03:00</updated>
-    <id>http://italoqueiroz.github.com/blog/2012/10/04/meteor</id>
-    <content type="html"><![CDATA[<p><img class="right" src="/images/meteor/meteor.png" width="246">
-Durante meus momentos de estudo me deparei com uma framework pra lá de curiosa, ela simplesmente prometia uma programação no lado servidor e no lado cliente usando somente Javascript e trabalhando de forma reativa: qualquer alteração realizada na página seria imediatamente populada em todos os outros clientes.</p>
-
-<p>Até então não tinha acredito muito bem, e mesmo que possível, imaginei que fosse uma dificuldade imensa para configurar a máquina. Leigo engano logo após ver os vídeos de demonstração no site fiquei absurdamente surpreso. No momento de sua instalação não tive nenhum problema, sendo possível ainda baixar e rodar projetos demos.</p>
-
-<p><a href="http://meteor.com">Meteor</a> tem um conjunto de pacotes que podem ser adicionados ao projeto. <br />
- Ex: <a href="http://www.mongodb.org/">mongoDB</a>, <a href="http://handlebarsjs.com/">HandleBars</a>, <a href="http://nodejs.org/">Node.js</a>, <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, entre outros...</p>
-
-<p>Para entender melhor como funcionava montei um <a href="http://pt.wikipedia.org/wiki/Kanban">Kanban</a> <span class="bobagem">criei o repositório "kanbam" com  "m", sorry</span> onde os usuários vão adicionando tarefas e movendo-as pelo quadro.</p>
-
-<p>Segue o link do "<a href="https://github.com/italoqueiroz/kanbam">kanbam</a>" no GitHub.</p>
 ]]></content>
   </entry>
   
