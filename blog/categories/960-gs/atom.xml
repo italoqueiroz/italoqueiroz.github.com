@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 960.gs | Italo Queiroz]]></title>
   <link href="http://italoqueiroz.github.com/blog/categories/960-gs/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
-  <updated>2012-10-06T11:36:35-03:00</updated>
+  <updated>2012-10-10T14:12:03-03:00</updated>
   <id>http://italoqueiroz.github.com/</id>
   <author>
     <name><![CDATA[Italo Queiroz]]></name>
@@ -19,6 +19,15 @@
     <updated>2012-10-06T11:00:00-03:00</updated>
     <id>http://italoqueiroz.github.com/blog/2012/10/06/handlebars-ou-ejs</id>
     <content type="html"><![CDATA[<p>Atualmente aqui no trabalho estamos definindo uma framework para o lado cliente (somente HTML e JS) que possa salvar nossas vidas, que seja “componetizada”, de fácil uso e acima de tudo tenha pouca dependência no layout utilizado na página (podendo usar <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, <a href="http://foundation.zurb.com/">Foundation</a>, <a href="http://960.gs/">960.gs</a> e zas).</p>
+
+<p>
+``` js PQP</p>
+
+<pre><code>{{handlebars}}
+</code></pre>
+
+<p>```
+</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Inativando o cache  </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
