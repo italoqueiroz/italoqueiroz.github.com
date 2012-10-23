@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: MAC OS | Italo Queiroz]]></title>
+  <link href="http://italoqueiroz.github.com/blog/categories/mac-os/atom.xml" rel="self"/>
+  <link href="http://italoqueiroz.github.com/"/>
+  <updated>2012-10-23T14:50:25-02:00</updated>
+  <id>http://italoqueiroz.github.com/</id>
+  <author>
+    <name><![CDATA[Italo Queiroz]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Atualizando o PHP no MAC OS]]></title>
+    <link href="http://italoqueiroz.github.com/blog/2012/10/11/atualizando-o-php-no-mac-os/"/>
+    <updated>2012-10-11T12:08:00-03:00</updated>
+    <id>http://italoqueiroz.github.com/blog/2012/10/11/atualizando-o-php-no-mac-os</id>
+    <content type="html"><![CDATA[<p>Manolada, quem tem MAC OS sabe muito bem que ele já vem com um PHP e Apache instalado, pronto para ser utilizado. Só que nem tudo são flores, porque a versão que vem instalada no OS é muito desatualizada com a ultima versão estável disponível.</p>
+
+<p>E ai que vem a porrada. Como atualizar o PHP do MAC sem cuspir sangue?. Isso pode ser feito de 2 maneiras. Você pode usar gerenciadores de pacote ou simplesmente utilizar um comando no terminal e mais nada. <span class="bobagem">coisa linda d++++</span></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Atualizar PHP  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">php</span><span class="o">-</span><span class="n">osx</span><span class="o">.</span><span class="n">liip</span><span class="o">.</span><span class="n">ch</span><span class="o">/</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span> <span class="o">|</span> <span class="n">bash</span> <span class="o">-</span><span class="n">s</span> <span class="mi">5</span><span class="o">.</span><span class="mi">4</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Simples assim, se tiverem dúvidas podem <a href="http://php-osx.liip.ch">acessar o site desta bagaça</a>.</p>
+
+<p>Espero ter ajudado.</p>
+]]></content>
+  </entry>
+  
+</feed>
