@@ -2,36 +2,36 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/04/primeiro-post/</loc>
-        <lastmod>2012-10-05T17:20:48-03:00</lastmod>
+        <lastmod>2012-10-25T23:50:53-02:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/04/meteor/</loc>
-        <lastmod>2012-10-05T17:17:48-03:00</lastmod>
+        <lastmod>2012-10-25T23:50:53-02:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/06/handlebars-ou-ejs/</loc>
-        <lastmod>2012-10-09T17:14:42-03:00</lastmod>
+        <lastmod>2012-10-25T23:50:53-02:00</lastmod>
     </url>
     <url>
         <loc>
             http://italoqueiroz.github.com/blog/2012/10/09/criando-templates-com-handlebars/
         </loc>
-        <lastmod>2012-10-10T14:12:02-03:00</lastmod>
+        <lastmod>2012-10-25T23:50:53-02:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/11/atualizando-o-php-no-mac-os/</loc>
-        <lastmod>2012-10-23T14:49:32-02:00</lastmod>
+        <lastmod>2012-10-25T23:50:53-02:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/17/criando-widget-usando-jquery/</loc>
-        <lastmod>2012-10-23T14:49:12-02:00</lastmod>
+        <lastmod>2012-10-25T23:50:53-02:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/archives/</loc>
-        <lastmod>2012-10-23T14:49:32-02:00</lastmod>
+        <lastmod>2012-10-26T00:20:07-02:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/</loc>
-        <lastmod>2012-10-23T14:49:32-02:00</lastmod>
+        <lastmod>2012-10-25T16:59:09-02:00</lastmod>
     </url>
 </urlset>
