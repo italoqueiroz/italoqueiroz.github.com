@@ -112,6 +112,284 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/10/27/plugin-jquery-para-handlebars/">Plugin jQuery Para Handlebars</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">por <span class="fn">Italo Queiroz</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-27T19:02:00-02:00" pubdate data-updated="true">27/10/2012 19:02</time> - 
+        
+
+falando sobre:
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/handlebars/'>Handlebars</a>, <a class='category' href='/blog/categories/plugin/'>Plugin</a>, <a class='category' href='/blog/categories/template/'>Template</a>, <a class='category' href='/blog/categories/jquery/'>jQuery</a>
+  
+</span>
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Fala manolada.</p>
+
+<p>Estive usando o Handlebars e percebi que eu realizava algumas ações repetitivas, que não facilitavam em nada o desenvolvimento dos templates. Daí surgiu a idéia de criar um plugin jQuery que fizesse o simples, tendo como parâmetro o caminho do template e o do json que seria recebido para a geração do conteúdo.</p>
+
+<figure class='code'><figcaption><span>jHandlebars.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">;(</span><span class="kd">function</span> <span class="p">(</span> <span class="nx">$</span><span class="p">,</span> <span class="nb">window</span><span class="p">,</span> <span class="kc">undefined</span> <span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// Nome do plugin =&gt; &#39;handlebars&#39;;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">pluginName</span> <span class="o">=</span> <span class="s1">&#39;handlebars&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nb">document</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nb">document</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">dataJson</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">templateHandleBars</span> <span class="o">=</span> <span class="kc">null</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">defaults</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">json</span><span class="o">:</span> <span class="p">{},</span>
+</span><span class='line'>        <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+</span><span class='line'>      <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Construtor do nosso Plugin;</span>
+</span><span class='line'>    <span class="kd">function</span> <span class="nx">Plugin</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span> <span class="o">=</span> <span class="nx">element</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">options</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">extend</span><span class="p">({},</span> <span class="nx">defaults</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">_defaults</span> <span class="o">=</span> <span class="nx">defaults</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">_name</span> <span class="o">=</span> <span class="nx">pluginName</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">Plugin</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>      <span class="c1">//Método init();</span>
+</span><span class='line'>      <span class="nx">init</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">refresh</span><span class="p">();</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="c1">//Método refresh() que cuida de instanciar o template e o json;</span>
+</span><span class='line'>      <span class="c1">//Depois monta e compila os dados para retornar o html gerado;</span>
+</span><span class='line'>      <span class="nx">refresh</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//Verifica se o template já foi instanciado e se é uma função;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">templateHandleBars</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">jQuery</span><span class="p">.</span><span class="nx">isFunction</span><span class="p">(</span><span class="nx">templateHandleBars</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">templateHandleBars</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_loadTemplate</span><span class="p">();</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="c1">//Verifica se já está instanciado o json de dados;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">dataJson</span> <span class="o">||</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">isEmptyObject</span><span class="p">(</span><span class="nx">dataJson</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">dataJson</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_loadJson</span><span class="p">();</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="c1">//Só é possível montar o template se o &quot;templateHandleBars&quot; for uma função;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">jQuery</span><span class="p">.</span><span class="nx">isFunction</span><span class="p">(</span><span class="nx">templateHandleBars</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">templateHtml</span> <span class="o">=</span> <span class="nx">templateHandleBars</span><span class="p">(</span><span class="nx">dataJson</span><span class="p">);</span>
+</span><span class='line'>          <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">templateHtml</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Ocorreu um erro no template handleBars, verifique o caminho informado.&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="c1">//Método _loadTemplate() que carrega e instancia o template handlebars;</span>
+</span><span class='line'>      <span class="nx">_loadTemplate</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_ajax</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">template</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">jQuery</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="nx">template</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">return</span> <span class="nx">Handlebars</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">template</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="c1">//Método _loadJson() que carrega e instancia o json de dados;</span>
+</span><span class='line'>      <span class="nx">_loadJson</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//Se o json for um objeto ele não chama o AJAX;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">jQuery</span><span class="p">.</span><span class="nx">isPlainObject</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">json</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">json</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">jQuery</span><span class="p">.</span><span class="nx">type</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">json</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_ajax</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">json</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">return</span> <span class="p">{};</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>      <span class="c1">//Método _ajax() responsável por realizar as requisições AJAX do plugin;</span>
+</span><span class='line'>      <span class="nx">_ajax</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">dataType</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">dataReturn</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span><span class='line'>          <span class="nx">url</span><span class="o">:</span> <span class="nx">url</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">dataType</span><span class="o">:</span> <span class="nx">dataType</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">async</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span><span class='line'>          <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>              <span class="nx">dataReturn</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="nx">dataReturn</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">},</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="c1">//Função que instancia nosso Plugin passando o element e os options informados;</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">[</span><span class="nx">pluginName</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;plugin_&#39;</span> <span class="o">+</span> <span class="nx">pluginName</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">$</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;plugin_&#39;</span> <span class="o">+</span> <span class="nx">pluginName</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Plugin</span><span class="p">(</span> <span class="k">this</span><span class="p">,</span> <span class="nx">options</span> <span class="p">));</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>      <span class="p">});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="p">}(</span><span class="nx">jQuery</span><span class="p">,</span> <span class="nb">window</span><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Para usar é muito simples</p>
+
+<figure class='code'><figcaption><span>exemplo.js</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#element&#39;</span><span class="p">).</span><span class="nx">handlebars</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">json</span><span class="o">:</span> <span class="p">{</span><span class="nx">pessoas</span><span class="o">:</span><span class="p">[{</span><span class="nx">nome</span><span class="o">:</span><span class="s1">&#39;italo&#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">nome</span><span class="o">:</span><span class="s1">&#39;queiroz&#39;</span><span class="p">}]},</span>
+</span><span class='line'>  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;caminho_do_template_handlebars.hb&#39;</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//ou</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#element&#39;</span><span class="p">).</span><span class="nx">handlebars</span><span class="p">({</span>
+</span><span class='line'>  <span class="nx">json</span><span class="o">:</span> <span class="s1">&#39;caminho_do_json.json&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;caminho_do_template_handlebars.hb&#39;</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Caso queiram colaborar fiquem a vontade, segue o link do <a href="https://github.com/italoqueiroz/jHandlebars">GitHub</a> com um exemplo do uso.</p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/10/17/criando-widget-usando-jquery/">Criando Widget Usando jQuery</a></h1>
     
     
@@ -1044,6 +1322,10 @@ falando sobre:
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/2012/10/27/plugin-jquery-para-handlebars/">Plugin jQuery para Handlebars</a>
+        </li>
+      
+        <li>
           <a href="/blog/2012/10/17/criando-widget-usando-jquery/">Criando widget usando jQuery</a>
         </li>
       
@@ -1057,10 +1339,6 @@ falando sobre:
       
         <li>
           <a href="/blog/2012/10/06/handlebars-ou-ejs/">HandleBars ou EJS</a>
-        </li>
-      
-        <li>
-          <a href="/blog/2012/10/04/meteor/">Meteor</a>
         </li>
       
     </ul>

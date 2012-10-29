@@ -4,7 +4,7 @@
   <title><![CDATA[Category: jQuery | Italo Queiroz]]></title>
   <link href="http://italoqueiroz.github.com/blog/categories/jquery/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
-  <updated>2012-10-26T00:45:31-02:00</updated>
+  <updated>2012-10-29T09:11:19-02:00</updated>
   <id>http://italoqueiroz.github.com/</id>
   <author>
     <name><![CDATA[Italo Queiroz]]></name>
@@ -12,6 +12,144 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Plugin jQuery para Handlebars]]></title>
+    <link href="http://italoqueiroz.github.com/blog/2012/10/27/plugin-jquery-para-handlebars/"/>
+    <updated>2012-10-27T19:02:00-02:00</updated>
+    <id>http://italoqueiroz.github.com/blog/2012/10/27/plugin-jquery-para-handlebars</id>
+    <content type="html"><![CDATA[<p>Fala manolada.</p>
+
+<p>Estive usando o Handlebars e percebi que eu realizava algumas ações repetitivas, que não facilitavam em nada o desenvolvimento dos templates. Daí surgiu a idéia de criar um plugin jQuery que fizesse o simples, tendo como parâmetro o caminho do template e o do json que seria recebido para a geração do conteúdo.</p>
+
+<p>
+``` javascript jHandlebars.js
+;(function ( $, window, undefined ) {</p>
+
+<pre><code>  // Nome do plugin =&gt; 'handlebars';
+  var pluginName = 'handlebars',
+    document = window.document,
+    dataJson = null,
+    templateHandleBars = null,
+    defaults = {
+      json: {},
+      template: ''
+    };
+
+  // Construtor do nosso Plugin;
+  function Plugin(element, options) {
+    this.element = element;
+    this.options = $.extend({}, defaults, options) ;
+
+    this._defaults = defaults;
+    this._name = pluginName;
+
+    this.init();
+  }
+
+  Plugin.prototype = {
+    //Método init();
+    init: function () {
+      this.refresh();
+    },
+    //Método refresh() que cuida de instanciar o template e o json;
+    //Depois monta e compila os dados para retornar o html gerado;
+    refresh: function () {
+      //Verifica se o template já foi instanciado e se é uma função;
+      if (!templateHandleBars &amp;&amp; !jQuery.isFunction(templateHandleBars)) {
+        templateHandleBars = this._loadTemplate();
+      }
+      //Verifica se já está instanciado o json de dados;
+      if (!dataJson || jQuery.isEmptyObject(dataJson)) {
+        dataJson = this._loadJson();
+      }
+      //Só é possível montar o template se o "templateHandleBars" for uma função;
+      if (jQuery.isFunction(templateHandleBars)) {
+        var templateHtml = templateHandleBars(dataJson);
+        $(this.element).html(templateHtml);
+      } else {
+        $(this.element).html('Ocorreu um erro no template handleBars, verifique o caminho informado.');
+      }
+
+    },
+    //Método _loadTemplate() que carrega e instancia o template handlebars;
+    _loadTemplate: function () {
+      var template = this._ajax(this.options.template, 'html');
+      if (jQuery.type(template) === 'string') {
+        return Handlebars.compile(template);
+      }
+      return '';
+    },
+    //Método _loadJson() que carrega e instancia o json de dados;
+    _loadJson: function () {
+      //Se o json for um objeto ele não chama o AJAX;
+      if (jQuery.isPlainObject(this.options.json)) {
+        return this.options.json
+      } else if (jQuery.type(this.options.json) === 'string') {
+        return this._ajax(this.options.json, 'json');
+      }
+      return {};
+    },
+    //Método _ajax() responsável por realizar as requisições AJAX do plugin;
+    _ajax: function (url, dataType) {
+      var dataReturn = null;
+
+      $.ajax({
+        url: url,
+        dataType: dataType,
+        async: false,
+        success: function (data) {
+          if (data) {
+            dataReturn = data;
+          }
+        }
+      });
+
+      return dataReturn;
+    },
+  };
+  //Função que instancia nosso Plugin passando o element e os options informados;
+  $.fn[pluginName] = function (options) {
+    return this.each(function () {
+      if (!$.data(this, 'plugin_' + pluginName)) {
+        $.data(this, 'plugin_' + pluginName, new Plugin( this, options ));
+      }
+    });
+  }
+
+}(jQuery, window));
+</code></pre>
+
+<p>```
+</p>
+
+<p>Para usar é muito simples</p>
+
+<p>
+``` javascript exemplo.js
+$('#element').handlebars({</p>
+
+<pre><code>json: {pessoas:[{nome:'italo'}, {nome:'queiroz'}]},
+template: 'caminho_do_template_handlebars.hb'
+</code></pre>
+
+<p>});</p>
+
+<p>//ou</p>
+
+<p>$('#element').handlebars({</p>
+
+<pre><code>json: 'caminho_do_json.json',
+template: 'caminho_do_template_handlebars.hb'
+</code></pre>
+
+<p>});
+```
+</p>
+
+<p>Caso queiram colaborar fiquem a vontade, segue o link do <a href="https://github.com/italoqueiroz/jHandlebars">GitHub</a> com um exemplo do uso.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Criando widget usando jQuery]]></title>
