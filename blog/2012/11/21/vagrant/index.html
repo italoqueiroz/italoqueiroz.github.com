@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>HandleBars ou EJS - Italo Queiroz</title>
+  <title>vagrant - Italo Queiroz</title>
   <meta name="author" content="Italo Queiroz">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,7 @@
   
     
   
-  <meta name="description" content="Atualmente aqui no trabalho estamos definindo uma framework para o lado cliente (somente HTML e JS) que possa salvar nossas vidas, que seja “ &hellip;">
+  <meta name="description" content="Galera pensei em fazer este post com o intuito de compartilhar alguns link úteis para aqueles que estão, assim como eu, na luta :D para usar o &hellip;">
   <!---->
   
   <meta name="keywords" content="PHP, ZendFramework, jQuery, Javascript, Programming, Programação, Handlebars, jQueryUI, EJS">
@@ -24,20 +24,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://italoqueiroz.github.com/blog/2012/10/06/handlebars-ou-ejs/">
+  <link rel="canonical" href="http://italoqueiroz.github.com/blog/2012/11/21/vagrant/">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Italo Queiroz" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Italo Queiroz" />
-  <meta name="og:title" content="HandleBars ou EJS" />
-  <meta name="og:description" content="Atualmente aqui no trabalho estamos definindo uma framework para o lado cliente (somente HTML e JS) que possa salvar nossas vidas, que seja “ &hellip;" />
-  <meta name="og:url" content="http://italoqueiroz.github.com/blog/2012/10/06/handlebars-ou-ejs/"/>
-  <meta name="url" content="http://italoqueiroz.github.com/blog/2012/10/06/handlebars-ou-ejs/">
+  <meta name="og:title" content="vagrant" />
+  <meta name="og:description" content="Galera pensei em fazer este post com o intuito de compartilhar alguns link úteis para aqueles que estão, assim como eu, na luta :D para usar o &hellip;" />
+  <meta name="og:url" content="http://italoqueiroz.github.com/blog/2012/11/21/vagrant/"/>
+  <meta name="url" content="http://italoqueiroz.github.com/blog/2012/11/21/vagrant/">
   
-  <meta name="subject" content="960.gsBootStrapEJSFoundationHandleBarsJavascript"/>
-  <meta name="category" content="960.gsBootStrapEJSFoundationHandleBarsJavascript"/>
+  <meta name="subject" content="DevOpsVagrant"/>
+  <meta name="category" content="DevOpsVagrant"/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -91,7 +91,7 @@
 
   <header>
     
-      <h1 class="entry-title">HandleBars Ou EJS</h1>
+      <h1 class="entry-title">Vagrant</h1>
     
     
       <p class="meta">
@@ -116,13 +116,13 @@
   
 
 
-<time datetime="2012-10-06T11:00:00-03:00" pubdate data-updated="true">06/10/2012 11:00</time> - 
+<time datetime="2012-11-21T14:12:00-02:00" pubdate data-updated="true">21/11/2012 14:12</time> - 
         
 
 falando sobre:
 <span class="categories">
   
-    <a class='category' href='/blog/categories/960-gs/'>960.gs</a>, <a class='category' href='/blog/categories/bootstrap/'>BootStrap</a>, <a class='category' href='/blog/categories/ejs/'>EJS</a>, <a class='category' href='/blog/categories/foundation/'>Foundation</a>, <a class='category' href='/blog/categories/handlebars/'>HandleBars</a>, <a class='category' href='/blog/categories/javascript/'>Javascript</a>
+    <a class='category' href='/blog/categories/devops/'>DevOps</a>, <a class='category' href='/blog/categories/vagrant/'>Vagrant</a>
   
 </span>
 
@@ -133,46 +133,45 @@ falando sobre:
   </header>
 
 
-  <div class="entry-content"><p>Atualmente aqui no trabalho estamos definindo uma framework para o lado cliente (somente HTML e JS) que possa salvar nossas vidas, que seja “componetizada”, de fácil uso e acima de tudo tenha pouca dependência no layout utilizado na página (podendo usar <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, <a href="http://foundation.zurb.com/">Foundation</a>, <a href="http://960.gs/">960.gs</a> e zas).</p>
+  <div class="entry-content"><p>Galera pensei em fazer este post com o intuito de compartilhar alguns link úteis para aqueles que estão, assim como eu, na luta :D para usar o Vagrant como seu provedor de ambiente. Mas se você não sabe o que é ou pra que &#8220;bulufas&#8221; serve o Vagrant, segue uma breve abordagem.</p>
 
-<figure class='code'><figcaption><span>PQP</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="p">{{</span><span class="nx">handlebars</span><span class="p">}}</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>Sempre quando entramos em um novo projeto temos um ambiente específico para aquele projeto rodar, mas agora pense em um cenário em que você está envolvido com mais de 2 projetos.</p>
 
+<h3>Lista dos projetos</h3>
 
-
-
-<figure class='code'><figcaption><span>Inativando o cache  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//Exemplo do site da engine HandleBars </span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">source</span>   <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#entry-template&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">();</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">Handlebars</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="p">{</span><span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;My New Post&quot;</span><span class="p">,</span> <span class="nx">body</span><span class="o">:</span> <span class="s2">&quot;This is my first post!&quot;</span><span class="p">}</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">html</span>    <span class="o">=</span> <span class="nx">template</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
+<ol>
+<li>O primeiro é um legado da empresa, feito em PHP 4.x</li>
+<li>O segundo é um projeto que será o carro chefe da empresa feito em PHP 5.2</li>
+<li>O terceiro é um freelancer que está sendo desenvolvido usando ZendFramework2 e PHP 5.4</li>
+</ol>
 
 
-<p>Em meio a elaboração do projeto nos deparamos com a necessidade de utilizar um template JS, eu já tinha trabalhado com <a href="http://embeddedjs.com/">EJS</a> mas estava fortemente voltado ao <a href="http://handlebarsjs.com/">HandleBars</a> (culpa do <a href="/blog/2012/10/04/meteor/">Meteor</a>), sendo assim, fui dar uma googlada e percebi que existiam dezenas de engines de template e que o <a href="https://www.linkedin.com/">LinkedIn</a> tinha feito um comparativo com várias opções para definir o que eles usariam na parte de view do site (<a href="http://engineering.linkedin.com/frontend/client-side-templating-throwdown-mustache-handlebars-dustjs-and-more">clique aqui</a> para ver os resultados).</p>
+<h3>Como preparar sua máquina para atender a esta demanda?</h3>
 
-<p>Dentre as opções o HandleBars teve alguns elogios por parte da equipe do LinkedIn e por esse e outros motivos acabamos escolhendo-o. Mesmo sendo uma excelente engine e que também suporta templates do Mustache (que tem uma comunidade enorme) creio que testes de conceito sejam a melhor maneira de averiguar o que atende a sua necessida, assim como fez a equipe do LinkedIn.</p>
+<p>Este problema já me atrasou muito nas migrações de projetos e Vagrant veio <strong>TAMBÉM</strong> para resolver isso.
+Vagrant é uma ferramenta open source lálálálá&#8230; se você quiser saber mais sobre como foi criado clique <a href="http://vagrantup.com/about.html">aqui</a>.</p>
 
-<p>Teve um ponto em específico levantado pela nossa equipe que me fizeram pensar 2 vezes antes de apoiar totalmente o HandleBars: “O CACHE”. No EJS para “cachear” um template é estupidamente simples pois já vem nativo já no HandleBars sua implementação é um pouco mais trabalhosa.</p>
+<h3>Entendendo como funciona</h3>
 
-<figure class='code'><figcaption><span>Inativando o cache  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">//Inativando o cache...</span>
-</span><span class='line'><span class="nx">EJS</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span><span class="nx">cache</span><span class="o">:</span> <span class="kc">false</span><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li><p>Nele você seleciona qual será o SO ou Box (CentOS 5.8 x86_64, Ubuntu precise 32, Debian Squeeze 64, etc) de sua máquina virtual. Este SO você precisará baixar somente uma vez, podendo reaproveitar sempre que necessário para gerar suas VM.</p></li>
+<li><p>Você gera a VM informando qual box irá usar (Ex: vagrant init precise32). Lembrando que você deve dar init na pasta do projeto e a mesma será usada na sua vm como seu DOCUMENT_ROOT.</p></li>
+<li><p>O Vagrant irá gerar um arquivo chamado Vagrantfile, e esse cara que faz toda a mágica. Lembre que o Vagrant irá criar uma máquina virtual para você customizar da forma como bem entender, mas você não precisará editar seus códigos dentro da VM. OPA????? Ficou confuso??? Mas é exatamente isso, a VM irá prover o ambiente para você rodar seu código. No Vagrantfile você pode fazer a seguinte configuração &#8211; config.vm.forward_port 80, 8080 &#8211; Aqui estou falando que a porta 80 da minha VM irá responder a porta 8080 do HOST (Meu computador). E para visualizar o código &#8220;tinindo&#8221; é só jogar no browser a URL &#8220;localhost:8080&#8221;.</p></li>
+</ul>
 
 
-<p>Mas creio que para saber como funciona esse lance de template JS a melhor opção seja o EJS, é mais tranquilo de trabalhar (com coisas simples), caso a idéia (como é a do nosso framework) seja mexer com vários componentes criando helpers e plugins aconselho o HandleBars por ter uma documentação mais vasta já que ele veio do Mustache.</p>
+<p>Claro que não é só para isso que o Vagrant funciona, mas isso já quebra um galhão. Sem falar que depois de criada e configurada você pode compartilhar esta VM ou box com a sua equipe, forçando a galera a conversar na mesma língua independente do HOST (Mac, Windows, Linux, etc) de cada um.</p>
+
+<h3>Links úteis</h3>
+
+<ul>
+<li><a href="http://www.vagrantup.com">Vagrant site</a></li>
+<li><a href="http://www.vagrantbox.es">Listagem de boxes disponíveis.</a></li>
+<li><a href="http://puppetlabs.com">Puppet</a>. Com ele você pode criar módulos que para quando gerada sua VM ela já contenha algumas configurações ou pacotes instalados (Ex: ZendServer).</li>
+<li><a href="http://forge.puppetlabs.com">Puppet Forge</a>. Repositório com módulos prontos para usar com Vagrant.</li>
+<li><a href="http://www.opscode.com/chef/">Chef</a>. Que também serve para gerenciar sua VM, mas usando como linguagem ruby para a construção de seus módulos.</li>
+</ul>
+
 </div>
 
 
@@ -199,23 +198,21 @@ falando sobre:
   
 
 
-<time datetime="2012-10-06T11:00:00-03:00" pubdate data-updated="true">06/10/2012 11:00</time>
+<time datetime="2012-11-21T14:12:00-02:00" pubdate data-updated="true">21/11/2012 14:12</time>
       
 
 falando sobre:
 <span class="categories">
   
-    <a class='category' href='/blog/categories/960-gs/'>960.gs</a>, <a class='category' href='/blog/categories/bootstrap/'>BootStrap</a>, <a class='category' href='/blog/categories/ejs/'>EJS</a>, <a class='category' href='/blog/categories/foundation/'>Foundation</a>, <a class='category' href='/blog/categories/handlebars/'>HandleBars</a>, <a class='category' href='/blog/categories/javascript/'>Javascript</a>
+    <a class='category' href='/blog/categories/devops/'>DevOps</a>, <a class='category' href='/blog/categories/vagrant/'>Vagrant</a>
   
 </span>
 
 
     </p>
     
-      <a class="pull-left" href="/blog/2012/10/04/meteor/" title="Previous Post: Meteor">&laquo; Meteor</a>
+      <a class="pull-left" href="/blog/2012/10/27/plugin-jquery-para-handlebars/" title="Previous Post: Plugin jQuery para Handlebars">&laquo; Plugin jQuery para Handlebars</a>
     
-    
-      <a class="pull-right" href="/blog/2012/10/09/criando-templates-com-handlebars/" title="Next Post: Criando templates com HandleBars">Criando templates com HandleBars &raquo;</a>
     
   </footer>
 
@@ -335,8 +332,8 @@ falando sobre:
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://italoqueiroz.github.com/blog/2012/10/06/handlebars-ou-ejs/';
-        var disqus_url = 'http://italoqueiroz.github.com/blog/2012/10/06/handlebars-ou-ejs/';
+        var disqus_identifier = 'http://italoqueiroz.github.com/blog/2012/11/21/vagrant/';
+        var disqus_url = 'http://italoqueiroz.github.com/blog/2012/11/21/vagrant/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -4,7 +4,7 @@
   <title><![CDATA[Italo Queiroz]]></title>
   <link href="http://italoqueiroz.github.com/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
-  <updated>2012-10-29T09:11:19-02:00</updated>
+  <updated>2012-11-21T15:15:38-02:00</updated>
   <id>http://italoqueiroz.github.com/</id>
   <author>
     <name><![CDATA[Italo Queiroz]]></name>
@@ -12,6 +12,53 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[vagrant]]></title>
+    <link href="http://italoqueiroz.github.com/blog/2012/11/21/vagrant/"/>
+    <updated>2012-11-21T14:12:00-02:00</updated>
+    <id>http://italoqueiroz.github.com/blog/2012/11/21/vagrant</id>
+    <content type="html"><![CDATA[<p>Galera pensei em fazer este post com o intuito de compartilhar alguns link úteis para aqueles que estão, assim como eu, na luta :D para usar o Vagrant como seu provedor de ambiente. Mas se você não sabe o que é ou pra que &#8220;bulufas&#8221; serve o Vagrant, segue uma breve abordagem.</p>
+
+<p>Sempre quando entramos em um novo projeto temos um ambiente específico para aquele projeto rodar, mas agora pense em um cenário em que você está envolvido com mais de 2 projetos.</p>
+
+<h3>Lista dos projetos</h3>
+
+<ol>
+<li>O primeiro é um legado da empresa, feito em PHP 4.x</li>
+<li>O segundo é um projeto que será o carro chefe da empresa feito em PHP 5.2</li>
+<li>O terceiro é um freelancer que está sendo desenvolvido usando ZendFramework2 e PHP 5.4</li>
+</ol>
+
+
+<h3>Como preparar sua máquina para atender a esta demanda?</h3>
+
+<p>Este problema já me atrasou muito nas migrações de projetos e Vagrant veio <strong>TAMBÉM</strong> para resolver isso.
+Vagrant é uma ferramenta open source lálálálá&#8230; se você quiser saber mais sobre como foi criado clique <a href="http://vagrantup.com/about.html">aqui</a>.</p>
+
+<h3>Entendendo como funciona</h3>
+
+<ul>
+<li><p>Nele você seleciona qual será o SO ou Box (CentOS 5.8 x86_64, Ubuntu precise 32, Debian Squeeze 64, etc) de sua máquina virtual. Este SO você precisará baixar somente uma vez, podendo reaproveitar sempre que necessário para gerar suas VM.</p></li>
+<li><p>Você gera a VM informando qual box irá usar (Ex: vagrant init precise32). Lembrando que você deve dar init na pasta do projeto e a mesma será usada na sua vm como seu DOCUMENT_ROOT.</p></li>
+<li><p>O Vagrant irá gerar um arquivo chamado Vagrantfile, e esse cara que faz toda a mágica. Lembre que o Vagrant irá criar uma máquina virtual para você customizar da forma como bem entender, mas você não precisará editar seus códigos dentro da VM. OPA????? Ficou confuso??? Mas é exatamente isso, a VM irá prover o ambiente para você rodar seu código. No Vagrantfile você pode fazer a seguinte configuração &#8211; config.vm.forward_port 80, 8080 &#8211; Aqui estou falando que a porta 80 da minha VM irá responder a porta 8080 do HOST (Meu computador). E para visualizar o código &#8220;tinindo&#8221; é só jogar no browser a URL &#8220;localhost:8080&#8221;.</p></li>
+</ul>
+
+
+<p>Claro que não é só para isso que o Vagrant funciona, mas isso já quebra um galhão. Sem falar que depois de criada e configurada você pode compartilhar esta VM ou box com a sua equipe, forçando a galera a conversar na mesma língua independente do HOST (Mac, Windows, Linux, etc) de cada um.</p>
+
+<h3>Links úteis</h3>
+
+<ul>
+<li><a href="http://www.vagrantup.com">Vagrant site</a></li>
+<li><a href="http://www.vagrantbox.es">Listagem de boxes disponíveis.</a></li>
+<li><a href="http://puppetlabs.com">Puppet</a>. Com ele você pode criar módulos que para quando gerada sua VM ela já contenha algumas configurações ou pacotes instalados (Ex: ZendServer).</li>
+<li><a href="http://forge.puppetlabs.com">Puppet Forge</a>. Repositório com módulos prontos para usar com Vagrant.</li>
+<li><a href="http://www.opscode.com/chef/">Chef</a>. Que também serve para gerenciar sua VM, mas usando como linguagem ruby para a construção de seus módulos.</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Plugin jQuery para Handlebars]]></title>
