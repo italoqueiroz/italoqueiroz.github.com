@@ -2,7 +2,7 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/04/primeiro-post/</loc>
-        <lastmod>2012-10-25T23:50:53-02:00</lastmod>
+        <lastmod>2012-12-07T10:47:29-02:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/04/meteor/</loc>
@@ -35,11 +35,15 @@
         <lastmod>2012-11-21T15:14:59-02:00</lastmod>
     </url>
     <url>
+        <loc>http://italoqueiroz.github.com/blog/2012/12/06/zend-framework-certification/</loc>
+        <lastmod>2012-12-07T11:44:11-02:00</lastmod>
+    </url>
+    <url>
         <loc>http://italoqueiroz.github.com/blog/archives/</loc>
-        <lastmod>2012-11-21T15:14:59-02:00</lastmod>
+        <lastmod>2012-12-07T11:44:11-02:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/</loc>
-        <lastmod>2012-11-21T15:14:59-02:00</lastmod>
+        <lastmod>2012-12-07T11:44:11-02:00</lastmod>
     </url>
 </urlset>

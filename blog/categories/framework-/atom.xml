@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Framework" | Italo Queiroz]]></title>
+  <link href="http://italoqueiroz.github.com/blog/categories/framework-/atom.xml" rel="self"/>
+  <link href="http://italoqueiroz.github.com/"/>
+  <updated>2012-12-07T11:44:17-02:00</updated>
+  <id>http://italoqueiroz.github.com/</id>
+  <author>
+    <name><![CDATA[Italo Queiroz]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Zend Framework Certification]]></title>
+    <link href="http://italoqueiroz.github.com/blog/2012/12/06/zend-framework-certification/"/>
+    <updated>2012-12-06T11:23:00-02:00</updated>
+    <id>http://italoqueiroz.github.com/blog/2012/12/06/zend-framework-certification</id>
+    <content type="html"><![CDATA[<p>Fala galera, depois de um tempo sem nenhum post venho por meio desta <span class="bobagem">kkkkk</span> informar que finalmente tirei minha certificação ZF (Zend Framework).</p>
+
+<p>E por que deste post? Vou tentar falar sobre todo o processo e como realizei meus estudos.</p>
+
+<p>Seguinte, hoje no mercado temos dois tipos de certificação PHP que são: PHP 5.3 e Zend Framework. As duas certificações são oferecidas pela <a href="http://www.zend.com">Zend</a> e são aplicadas pela Pearson VUE e suas autorizadas.</p>
+
+<p>O local onde realizei a prova se chama <a href="http://www.foton.la">Fóton</a>, tem uma estrutura muito boa e a pessoa responsável por nos encaminhar ao teste foi super simpática. A prova foi toda em inglês, com questões de única escolha, múltipla escolha e campos de texto. O tempo para realizar a prova foi de 90 minutos, eu consegui terminar faltando 4 minutos, creio que o tempo é suficiente pois o que me atrapalhou foi o MEU INGLÊS.</p>
+
+<p>Ao final da prova aparece na tela "Congratulations" se você conseguiu e não sei a mensagem que aparece caso contrário.</p>
+
+<h3>Foquei meus estudos nos seguintes documentos:</h3>
+
+<ul>
+<li><a href="http://downloads.zend.com/framework/generic/ZFC_Study_Guide_v1.pdf">Study Guide da Zend</a></li>
+<li><a href="http://akrabat.com/wp-content/uploads/ZendCon09-ZF-Certification-Refresher.pdf">Zend Framework (a refresher)</a></li>
+<li><a href="http://framework.zend.com/manual/1.5/en/manual.html">Manual da Zend</a></li>
+<li>Código fonte da versão 1.5</li>
+</ul>
+
+
+<p>Então é isso galera! Boa sorte para quem irá fazer!</p>
+]]></content>
+  </entry>
+  
+</feed>
