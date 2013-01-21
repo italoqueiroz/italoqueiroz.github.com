@@ -4,7 +4,7 @@
   <title><![CDATA[Italo Queiroz]]></title>
   <link href="http://italoqueiroz.github.com/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
-  <updated>2012-12-07T11:44:17-02:00</updated>
+  <updated>2013-01-21T13:45:17-02:00</updated>
   <id>http://italoqueiroz.github.com/</id>
   <author>
     <name><![CDATA[Italo Queiroz]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Código PHP - Você segue algum padrão?]]></title>
+    <link href="http://italoqueiroz.github.com/blog/2013/01/21/codigo-php-voce-segue-algum-padrao/"/>
+    <updated>2013-01-21T12:36:00-02:00</updated>
+    <id>http://italoqueiroz.github.com/blog/2013/01/21/codigo-php-voce-segue-algum-padrao</id>
+    <content type="html"><![CDATA[<p>Quando inicia seu código, você pensa em algum padrão de formatação? Ou na definição do namespace da classe? Ou prefere seguir um padrão somente seu? Ou como muitos nem sabia que um código poderia ter um padrão definido e semelhante a grande projetos no mercado?</p>
+
+<p>Eu sempre gostei de seguir padrões de código, pois isso ajuda a outros desenvolvedores (que seguirem esse padrão) se adaptar melhor em projetos diferentes. Por estes motivo nunca criei o meu próprio padrão, procuro encontrar um dentre a comunidade PHP ou ZendFramework. E durante esta busca encontrei a galera do PHP-Fig.</p>
+
+<p><img src="http://italoqueiroz.github.com/images/php-fig/phpfig.png" alt="PHPFIG icon" /></p>
+
+<h4>O que é o PHP-Fig?</h4>
+
+<blockquote><p>The idea behind the group is for project representatives to talk about the commonalities between our projects and find ways we can work together. Our main audience is each other, but we’re very aware that the rest of the PHP community is watching. If other folks want to adopt what we’re doing they are welcome to do so, but that is not the aim.</p></blockquote>
+
+<h4>O que realmente isso significa?</h4>
+
+<p>Representantes de algumas frameworks PHP (ZendFramework, Symfony, CakePHP, etc..) e outros projetos que tem seu código escrito em PHP se juntam para debater alguns pontos semelhantes entre seus fontes. Assim tentam definir padrões para que estes projetos possam trabalhar em conjunto de forma fácil e rápida (plug-and-play code) e terem ao menos um padrão de formatação e definição de layout PHP parecidos.</p>
+
+<h5>Como funciona?</h5>
+
+<p>Todas os padrões são divididos entre PSR&#8217;s (Proposing a Standards Recommendation). Hoje o PHP-Fig tem 4 PSR&#8217;s. São elas:</p>
+
+<ul>
+<li><strong>PSR-0</strong>: Tem como objetivo definir padrões para definicões de classes e namespaces afim centralizar o autoload para todos os projetos que seguem este padrão ao invés de você ter que escrever um autoload para ZF e outro para o Doctrine.</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>PSR-1</strong>: Fornece regras, como as tags PHP permitidas em um código, Enconding, nome de métodos, etc.</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>PSR-2</strong>: Define os padrões de código, como formatar uma função, um if, um método com vários argumentos, etc.</li>
+</ul>
+
+
+<hr />
+
+<ul>
+<li><strong>PSR-3</strong>: Descreve uma interface para bibliotecas de LOG.</li>
+</ul>
+
+
+<hr />
+
+<br />
+
+
+<h4>Segue o link para quem estiver interessado <a href="http://www.php-fig.org/">PHP-FIG</a>.</h4>
+
+<p>E sigam a lista, pois este padrão está em constante evolução onde sugestões são bem-vindas.</p>
+
+<p>Espero ter ajudado!!!! :D</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Zend Framework Certification]]></title>
