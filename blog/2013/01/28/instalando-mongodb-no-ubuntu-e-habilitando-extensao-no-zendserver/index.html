@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>vagrant - Italo Queiroz</title>
+  <title>Instalando MongoDB no Ubuntu e habilitando extensão no ZendServer - Italo Queiroz</title>
   <meta name="author" content="Italo Queiroz">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,7 @@
   
     
   
-  <meta name="description" content="Galera pensei em fazer este post com o intuito de compartilhar alguns link úteis para aqueles que estão, assim como eu, na luta :D para usar o &hellip;">
+  <meta name="description" content="Pois bem, a instalação do MongoDB pra quem já tentou é um pouco chata e complicada no primeiro momento. Alguns erros ocorrem dificultando a &hellip;">
   <!---->
   
   <meta name="keywords" content="PHP, ZendFramework, jQuery, Javascript, Programming, Programação, Handlebars, jQueryUI, EJS">
@@ -24,20 +24,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://italoqueiroz.github.com/blog/2012/11/21/vagrant/">
+  <link rel="canonical" href="http://italoqueiroz.github.com/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Italo Queiroz" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Italo Queiroz" />
-  <meta name="og:title" content="vagrant" />
-  <meta name="og:description" content="Galera pensei em fazer este post com o intuito de compartilhar alguns link úteis para aqueles que estão, assim como eu, na luta :D para usar o &hellip;" />
-  <meta name="og:url" content="http://italoqueiroz.github.com/blog/2012/11/21/vagrant/"/>
-  <meta name="url" content="http://italoqueiroz.github.com/blog/2012/11/21/vagrant/">
+  <meta name="og:title" content="Instalando MongoDB no Ubuntu e habilitando extensão no ZendServer" />
+  <meta name="og:description" content="Pois bem, a instalação do MongoDB pra quem já tentou é um pouco chata e complicada no primeiro momento. Alguns erros ocorrem dificultando a &hellip;" />
+  <meta name="og:url" content="http://italoqueiroz.github.com/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/"/>
+  <meta name="url" content="http://italoqueiroz.github.com/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/">
   
-  <meta name="subject" content="DevOpsVagrant"/>
-  <meta name="category" content="DevOpsVagrant"/>
+  <meta name="subject" content=""/>
+  <meta name="category" content=""/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -91,7 +91,7 @@
 
   <header>
     
-      <h1 class="entry-title">Vagrant</h1>
+      <h1 class="entry-title">Instalando MongoDB No Ubuntu E Habilitando Extensão No ZendServer</h1>
     
     
       <p class="meta">
@@ -116,15 +116,8 @@
   
 
 
-<time datetime="2012-11-21T14:12:00-02:00" pubdate data-updated="true">21/11/2012 14:12</time> - 
+<time datetime="2013-01-28T20:16:00-02:00" pubdate data-updated="true">28/01/2013 20:16</time> - 
         
-
-falando sobre:
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/devops/'>DevOps</a>, <a class='category' href='/blog/categories/vagrant/'>Vagrant</a>
-  
-</span>
 
 
         
@@ -133,45 +126,94 @@ falando sobre:
   </header>
 
 
-  <div class="entry-content"><p>Galera pensei em fazer este post com o intuito de compartilhar alguns link úteis para aqueles que estão, assim como eu, na luta :D para usar o Vagrant como seu provedor de ambiente. Mas se você não sabe o que é ou pra que &#8220;bulufas&#8221; serve o Vagrant, segue uma breve abordagem.</p>
+  <div class="entry-content"><p>Pois bem, a instalação do MongoDB pra quem já tentou é um pouco chata e complicada no primeiro momento. Alguns erros ocorrem dificultando a instalação e podem desistimular alguns desenvolvedores a usarem.</p>
 
-<p>Sempre quando entramos em um novo projeto temos um ambiente específico para aquele projeto rodar, mas agora pense em um cenário em que você está envolvido com mais de 2 projetos.</p>
-
-<h3>Lista dos projetos</h3>
+<p>Montei uma VM Ubuntu com Vagrant para ter histórico de todos os comandos necessários, então para começar abra o terminal e siga os passos abaixo:</p>
 
 <ol>
-<li>O primeiro é um legado da empresa, feito em PHP 4.x</li>
-<li>O segundo é um projeto que será o carro chefe da empresa feito em PHP 5.2</li>
-<li>O terceiro é um freelancer que está sendo desenvolvido usando ZendFramework2 e PHP 5.4</li>
+<li><strong>1) Importe a chave(GPG key) 10gen, necessária para pacotes Ubuntu:</strong></li>
 </ol>
 
 
-<h3>Como preparar sua máquina para atender a esta demanda?</h3>
-
-<p>Este problema já me atrasou muito nas migrações de projetos e Vagrant veio <strong>TAMBÉM</strong> para resolver isso.
-Vagrant é uma ferramenta open source lálálálá&#8230; se você quiser saber mais sobre como foi criado clique <a href="http://vagrantup.com/about.html">aqui</a>.</p>
-
-<h3>Entendendo como funciona</h3>
-
-<ul>
-<li><p>Nele você seleciona qual será o SO ou Box (CentOS 5.8 x86_64, Ubuntu precise 32, Debian Squeeze 64, etc) de sua máquina virtual. Este SO você precisará baixar somente uma vez, podendo reaproveitar sempre que necessário para gerar suas VM.</p></li>
-<li><p>Você gera a VM informando qual box irá usar (Ex: vagrant init precise32). Lembrando que você deve dar init na pasta do projeto e a mesma será usada na sua vm como seu DOCUMENT_ROOT.</p></li>
-<li><p>O Vagrant irá gerar um arquivo chamado Vagrantfile, e esse cara que faz toda a mágica. Lembre que o Vagrant irá criar uma máquina virtual para você customizar da forma como bem entender, mas você não precisará editar seus códigos dentro da VM. OPA????? Ficou confuso??? Mas é exatamente isso, a VM irá prover o ambiente para você rodar seu código. No Vagrantfile você pode fazer a seguinte configuração &#8211; config.vm.forward_port 80, 8080 &#8211; Aqui estou falando que a porta 80 da minha VM irá responder a porta 8080 do HOST (Meu computador). E para visualizar o código &#8220;tinindo&#8221; é só jogar no browser a URL &#8220;localhost:8080&#8221;.</p></li>
-</ul>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Claro que não é só para isso que o Vagrant funciona, mas isso já quebra um galhão. Sem falar que depois de criada e configurada você pode compartilhar esta VM ou box com a sua equipe, forçando a galera a conversar na mesma língua independente do HOST (Mac, Windows, Linux, etc) de cada um.</p>
+<ol>
+<li><strong>2) Crie um arquivo em &#8220;/etc/apt/sources.list.d/10gen.list&#8221; adicionando o caminho do repositório:</strong></li>
+</ol>
 
-<h3>Links úteis</h3>
 
-<ul>
-<li><a href="http://www.vagrantup.com">Vagrant site</a></li>
-<li><a href="http://www.vagrantbox.es">Listagem de boxes disponíveis.</a></li>
-<li><a href="http://puppetlabs.com">Puppet</a>. Com ele você pode criar módulos que para quando gerada sua VM ela já contenha algumas configurações ou pacotes instalados (Ex: ZendServer).</li>
-<li><a href="http://forge.puppetlabs.com">Puppet Forge</a>. Repositório com módulos prontos para usar com Vagrant.</li>
-<li><a href="http://www.opscode.com/chef/">Chef</a>. Que também serve para gerenciar sua VM, mas usando como linguagem ruby para a construção de seus módulos.</li>
-</ul>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
+</span></code></pre></td></tr></table></div></figure>
 
+
+<ol>
+<li><strong>3) Recarregue o apt-get</strong></li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get update
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><strong>4) Instale o pacote</strong></li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install mongodb-10gen
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><strong>5) Instale o automake e autoconf, necessário para utilizar o phpize</strong></li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install automake
+</span><span class='line'>sudo apt-get install autoconf
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><strong>6) Instale a extensão via pecl do ZendServer</strong></li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo /usr/local/zend/bin/pecl install mongo
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><strong>7) Abra o painel do ZendServer(http://localhost:10081/) e no caminho &#8220;Server Setup > Extensions&#8221; habilite a extensão do mongo clicando em &#8220;Turn on&#8221;</strong></li>
+</ol>
+
+
+<br />
+
+
+<ol>
+<li><strong>8) Reinicie o apache</strong></li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo /usr/local/zend/bin/zendctl restart
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Espero que após estes 8 passos você tenha o mongo instalado em seu Ubuntu e a extensão habilitada no PHP.</p>
+
+<p>Link de referência:
+<a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/">MongoDb on Ubuntu</a></p>
 </div>
 
 
@@ -198,23 +240,14 @@ Vagrant é uma ferramenta open source lálálálá&#8230; se você quiser saber 
   
 
 
-<time datetime="2012-11-21T14:12:00-02:00" pubdate data-updated="true">21/11/2012 14:12</time>
+<time datetime="2013-01-28T20:16:00-02:00" pubdate data-updated="true">28/01/2013 20:16</time>
       
-
-falando sobre:
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/devops/'>DevOps</a>, <a class='category' href='/blog/categories/vagrant/'>Vagrant</a>
-  
-</span>
 
 
     </p>
     
-      <a class="pull-left" href="/blog/2012/10/27/plugin-jquery-para-handlebars/" title="Previous Post: Plugin jQuery para Handlebars">&laquo; Plugin jQuery para Handlebars</a>
+      <a class="pull-left" href="/blog/2013/01/21/codigo-php-voce-segue-algum-padrao/" title="Previous Post: Código PHP - Você segue algum padrão?">&laquo; Código PHP - Você segue algum padrão?</a>
     
-    
-      <a class="pull-right" href="/blog/2012/12/06/zend-framework-certification/" title="Next Post: Zend Framework Certification">Zend Framework Certification &raquo;</a>
     
   </footer>
 
@@ -338,8 +371,8 @@ falando sobre:
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://italoqueiroz.github.com/blog/2012/11/21/vagrant/';
-        var disqus_url = 'http://italoqueiroz.github.com/blog/2012/11/21/vagrant/';
+        var disqus_identifier = 'http://italoqueiroz.github.com/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/';
+        var disqus_url = 'http://italoqueiroz.github.com/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/';
         var disqus_script = 'embed.js';
       
     (function () {

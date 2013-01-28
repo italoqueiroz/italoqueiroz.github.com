@@ -45,11 +45,17 @@
         <lastmod>2013-01-21T13:45:16-02:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://italoqueiroz.github.com/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/
+        </loc>
+        <lastmod>2013-01-28T21:03:07-02:00</lastmod>
+    </url>
+    <url>
         <loc>http://italoqueiroz.github.com/blog/archives/</loc>
-        <lastmod>2013-01-21T13:45:16-02:00</lastmod>
+        <lastmod>2013-01-28T21:03:07-02:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/</loc>
-        <lastmod>2013-01-21T13:45:16-02:00</lastmod>
+        <lastmod>2013-01-28T21:03:07-02:00</lastmod>
     </url>
 </urlset>

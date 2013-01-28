@@ -112,6 +112,144 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/">Instalando MongoDB No Ubuntu E Habilitando Extensão No ZendServer</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">por <span class="fn">Italo Queiroz</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-28T20:16:00-02:00" pubdate data-updated="true">28/01/2013 20:16</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Pois bem, a instalação do MongoDB pra quem já tentou é um pouco chata e complicada no primeiro momento. Alguns erros ocorrem dificultando a instalação e podem desistimular alguns desenvolvedores a usarem.</p>
+
+<p>Montei uma VM Ubuntu com Vagrant para ter histórico de todos os comandos necessários, então para começar abra o terminal e siga os passos abaixo:</p>
+
+<ol>
+<li><strong>1) Importe a chave(GPG key) 10gen, necessária para pacotes Ubuntu:</strong></li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><strong>2) Crie um arquivo em &#8220;/etc/apt/sources.list.d/10gen.list&#8221; adicionando o caminho do repositório:</strong></li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><strong>3) Recarregue o apt-get</strong></li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get update
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><strong>4) Instale o pacote</strong></li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install mongodb-10gen
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><strong>5) Instale o automake e autoconf, necessário para utilizar o phpize</strong></li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install automake
+</span><span class='line'>sudo apt-get install autoconf
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><strong>6) Instale a extensão via pecl do ZendServer</strong></li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo /usr/local/zend/bin/pecl install mongo
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li><strong>7) Abra o painel do ZendServer(http://localhost:10081/) e no caminho &#8220;Server Setup > Extensions&#8221; habilite a extensão do mongo clicando em &#8220;Turn on&#8221;</strong></li>
+</ol>
+
+
+<br />
+
+
+<ol>
+<li><strong>8) Reinicie o apache</strong></li>
+</ol>
+
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo /usr/local/zend/bin/zendctl restart
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Espero que após estes 8 passos você tenha o mongo instalado em seu Ubuntu e a extensão habilitada no PHP.</p>
+
+<p>Link de referência:
+<a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/">MongoDb on Ubuntu</a></p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/01/21/codigo-php-voce-segue-algum-padrao/">Código PHP - Você Segue Algum Padrão?</a></h1>
     
     
@@ -1529,68 +1667,13 @@ falando sobre:
 
       </article>
     
-    
-      <article class="span4">
-        <div class="article-format">
-
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/04/primeiro-post/">Blog, GitHub Pages E Suas Malandragens</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-
-  
-    <span class="byline author vcard">por <span class="fn">Italo Queiroz</span></span>
-  
-
- - 
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-04T00:55:00-03:00" pubdate data-updated="true">04/10/2012 00:55</time> - 
-        
-
-
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>A uma semana atrás vi que era possível criar um blog hospedado pelo <a href="http://pages.github.com">GitHub Pages</a>
-<span class='bobagem'>(sei que estou atrasado)</span> usando
-<strong><a href="http://jekyllrb.com">Jekyll</a></strong> e
-<strong><a href="http://octopress.org">Octopress</a></strong>.</p>
-
-<p>Na tentativa o maior problema encontrado foi a atualização do Ruby para a versão 1.9.2, que após algumas &#8220;googladas&#8221; consegui resolver facilmente com <a href="https://rvm.io">RVM</a>,
-<span class='bobagem'>mentira tive que atualizar o XCode e instalar umas extensões para linha de comando</span>.</p>
-
-<p>Com este blog pretendo na medida do possível compartilhar alguns conhecimentos (e se você me conhece pessoalmente deve estar dizendo &#8220;quase nenhum&#8221;) e ferramentas que encontro em minhas pesquisas diárias&#8230;</p>
-</div>
-  
-  
-
-
-</div>
-
-      </article>
-    
     </div>
       <div class="row">
         <ul class="pager">
+          
+            <li class="previous">
+              <a href="/blog/page/2/">&larr; Older</a>
+            </li>
           
           
         </ul>
@@ -1607,6 +1690,10 @@ falando sobre:
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/">Instalando MongoDB no Ubuntu e habilitando extensão no ZendServer</a>
+        </li>
+      
+        <li>
           <a href="/blog/2013/01/21/codigo-php-voce-segue-algum-padrao/">Código PHP - Você segue algum padrão?</a>
         </li>
       
@@ -1620,10 +1707,6 @@ falando sobre:
       
         <li>
           <a href="/blog/2012/10/27/plugin-jquery-para-handlebars/">Plugin jQuery para Handlebars</a>
-        </li>
-      
-        <li>
-          <a href="/blog/2012/10/17/criando-widget-usando-jquery/">Criando widget usando jQuery</a>
         </li>
       
     </ul>
