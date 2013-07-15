@@ -64,9 +64,9 @@
     <div id="hero-inner" class="container">
       <div class="span10 offset1">
   <h1>
-    <em>Ítalo Queiroz</em>
+    <em style="color:#FFF;">Ítalo Queiroz</em>
   </h1>
-	<h3>Apenas um programador Manolo!!!</h3>
+	<h3 style="color:#DDD;">Apenas um programador Manolo!!!</h3>
 </div>
 
     </div>
@@ -105,6 +105,170 @@
   <div class="container">
     <div class="row">
     
+    
+    
+      <article class="span4">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/06/handlebars-ou-ejs/">HandleBars Ou EJS</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">por <span class="fn">Italo Queiroz</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-06T11:00:00-03:00" pubdate data-updated="true">06/10/2012 11:00</time> - 
+        
+
+falando sobre:
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/960-gs/'>960.gs</a>, <a class='category' href='/blog/categories/bootstrap/'>BootStrap</a>, <a class='category' href='/blog/categories/ejs/'>EJS</a>, <a class='category' href='/blog/categories/foundation/'>Foundation</a>, <a class='category' href='/blog/categories/handlebars/'>HandleBars</a>, <a class='category' href='/blog/categories/javascript/'>Javascript</a>
+  
+</span>
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Atualmente aqui no trabalho estamos definindo uma framework para o lado cliente (somente HTML e JS) que possa salvar nossas vidas, que seja “componetizada”, de fácil uso e acima de tudo tenha pouca dependência no layout utilizado na página (podendo usar <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, <a href="http://foundation.zurb.com/">Foundation</a>, <a href="http://960.gs/">960.gs</a> e zas).</p>
+
+<figure class='code'><figcaption><span>PQP</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="p">{{</span><span class="nx">handlebars</span><span class="p">}}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Inativando o cache  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//Exemplo do site da engine HandleBars </span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">source</span>   <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#entry-template&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">Handlebars</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="p">{</span><span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;My New Post&quot;</span><span class="p">,</span> <span class="nx">body</span><span class="o">:</span> <span class="s2">&quot;This is my first post!&quot;</span><span class="p">}</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">html</span>    <span class="o">=</span> <span class="nx">template</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Em meio a elaboração do projeto nos deparamos com a necessidade de utilizar um template JS, eu já tinha trabalhado com <a href="http://embeddedjs.com/">EJS</a> mas estava fortemente voltado ao <a href="http://handlebarsjs.com/">HandleBars</a> (culpa do <a href="/blog/2012/10/04/meteor/">Meteor</a>), sendo assim, fui dar uma googlada e percebi que existiam dezenas de engines de template e que o <a href="https://www.linkedin.com/">LinkedIn</a> tinha feito um comparativo com várias opções para definir o que eles usariam na parte de view do site (<a href="http://engineering.linkedin.com/frontend/client-side-templating-throwdown-mustache-handlebars-dustjs-and-more">clique aqui</a> para ver os resultados).</p>
+
+<p>Dentre as opções o HandleBars teve alguns elogios por parte da equipe do LinkedIn e por esse e outros motivos acabamos escolhendo-o. Mesmo sendo uma excelente engine e que também suporta templates do Mustache (que tem uma comunidade enorme) creio que testes de conceito sejam a melhor maneira de averiguar o que atende a sua necessida, assim como fez a equipe do LinkedIn.</p>
+
+<p>Teve um ponto em específico levantado pela nossa equipe que me fizeram pensar 2 vezes antes de apoiar totalmente o HandleBars: “O CACHE”. No EJS para “cachear” um template é estupidamente simples pois já vem nativo já no HandleBars sua implementação é um pouco mais trabalhosa.</p>
+
+<figure class='code'><figcaption><span>Inativando o cache  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">//Inativando o cache...</span>
+</span><span class='line'><span class="nx">EJS</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span><span class="nx">cache</span><span class="o">:</span> <span class="kc">false</span><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Mas creio que para saber como funciona esse lance de template JS a melhor opção seja o EJS, é mais tranquilo de trabalhar (com coisas simples), caso a idéia (como é a do nosso framework) seja mexer com vários componentes criando helpers e plugins aconselho o HandleBars por ter uma documentação mais vasta já que ele veio do Mustache.</p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/04/meteor/">Meteor</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">por <span class="fn">Italo Queiroz</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-04T20:09:00-03:00" pubdate data-updated="true">04/10/2012 20:09</time> - 
+        
+
+falando sobre:
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/handlebars/'>HandleBars</a>, <a class='category' href='/blog/categories/javascript/'>Javascript</a>, <a class='category' href='/blog/categories/meteor/'>Meteor</a>, <a class='category' href='/blog/categories/jquery/'>jQuery</a>
+  
+</span>
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Durante meu momentos de estudo me deparei com uma framework pra lá de curiosa, ela simplesmente prometia uma programação no lado servidor e no lado cliente usando somente Javascript e trabalhando de forma reativa: qualquer alteração realizada na página seria imediatamente populada em todos os outros clientes.</p>
+
+<p>Até então não tinha acredito muito bem, e mesmo que possível, imaginei que fosse uma dificuldade imensa para configurar a máquina. Leigo engano logo após ver os vídeos de demonstração no site fiquei absurdamente surpreso. No momento de sua instalação não tive nenhum problema, sendo possível ainda baixar e rodar projetos demos.</p>
+
+<p><a href="http://meteor.com">Meteor</a> tem um conjunto de pacotes que podem ser adicionados ao projeto. <br />
+ Ex: <a href="http://www.mongodb.org/">mongoDB</a>, <a href="http://handlebarsjs.com/">HandleBars</a>, <a href="http://nodejs.org/">Node.js</a>, <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, entre outros&#8230;</p>
+
+<p>Para entender melhor como funcionava montei um <a href="http://pt.wikipedia.org/wiki/Kanban">Kanban</a> <span class="bobagem">criei o repositório &#8220;kanbam&#8221; com  &#8220;m&#8221;, sorry</span> onde os usuários vão adicionando tarefas e movendo-as pelo quadro.</p>
+
+<p>Segue o link do &#8221;<a href="https://github.com/italoqueiroz/kanbam">kanbam</a>&#8221; no GitHub.</p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
     
     
       <article class="span4">
@@ -188,6 +352,10 @@
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/2013/07/15/baas-backend-as-a-service/">BaaS - Backend as a service</a>
+        </li>
+      
+        <li>
           <a href="/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/">Instalando MongoDB no Ubuntu e habilitando extensão no ZendServer</a>
         </li>
       
@@ -201,10 +369,6 @@
       
         <li>
           <a href="/blog/2012/11/21/vagrant/">vagrant</a>
-        </li>
-      
-        <li>
-          <a href="/blog/2012/10/27/plugin-jquery-para-handlebars/">Plugin jQuery para Handlebars</a>
         </li>
       
     </ul>

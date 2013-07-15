@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: StackMob | Italo Queiroz]]></title>
+  <link href="http://italoqueiroz.github.com/blog/categories/stackmob/atom.xml" rel="self"/>
+  <link href="http://italoqueiroz.github.com/"/>
+  <updated>2013-07-15T18:39:27-03:00</updated>
+  <id>http://italoqueiroz.github.com/</id>
+  <author>
+    <name><![CDATA[Italo Queiroz]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[BaaS - Backend as a service]]></title>
+    <link href="http://italoqueiroz.github.com/blog/2013/07/15/baas-backend-as-a-service/"/>
+    <updated>2013-07-15T10:54:00-03:00</updated>
+    <id>http://italoqueiroz.github.com/blog/2013/07/15/baas-backend-as-a-service</id>
+    <content type="html"><![CDATA[<p>Sempre quando iniciamos um app perdemos muito tempo com o desenvolvimento de componentes, integrações com redes sociais
+e modelagem de dados. Sendo que o mais importante é a interface (o que agrada os olhos) e a lógica (o que dá inteligência ao app).
+Mas como podemos desenvolver um app de forma fácil e ágil?</p>
+
+<p><strong>Simples, usando o BaaS (Backend as a service).</strong></p>
+
+<p><img src="http://www.optimusmobility.com/wp-content/uploads/2013/04/top_5_mobile_back-end-providers.png" alt="topFiveBaaS" /></p>
+
+<p>O BaaS fornece um armazenamento em nuvens em uma base de dados NoSQL (MongoDB, DynamoDB, etc..), mas não é somente isso,
+na grande maioria temos SDK's bem desenvolvidos com componentes robustos como:</p>
+
+<ol>
+<li><p><strong>Notificações Push</strong> - Em alguns servidores é possível ter uma análise detalhada dos push enviados. Ex: Quem Recebeu, Quem Abriu.</p></li>
+<li><p><strong>Integração com Redes Sociais</strong> - É possível adicionar login com facebook em poucas linhas.</p></li>
+<li><p><strong>Serviços de armazenamento de arquivos</strong> - Muitos usam S3 da amazon para otimizar este serviço</p></li>
+<li><p><strong>Geoqueries</strong> - É possível montar querys de localização de forma rápida. Ex: Você precisa encontrar pessoas no raio de 1km.</p></li>
+<li><p><strong>ACL</strong> - Controle de acesso feita a nível de usuário, perfil, collection (abstração de tabelas NoSQL).</p></li>
+<li><p><strong>Aplicativo</strong> Offline - Para app's mobile essa funcionalidade é essencial, ele salva os registros localmente e em alguns SDK's a sincronia é feita automaticamente assim que o app fique online.</p></li>
+<li><p><strong>Gestão de usuários</strong> - Cadastro, recuperação de senha, login, envio de email. Tudo pronto.</p></li>
+</ol>
+
+
+<p><img src="http://www.kinvey.com/images/kinvey_backend-as-a-service_mobileecosystem_2100px.png" alt="mobileEcosystem" /></p>
+
+<p>Atualmente na minha startup (com outros amigos) estamos desenvolvendo um app (Web e Mobile) e como sempre a economia nos
+gastos é primordial. Foi então que encontramos o parse.com (que em 1 ano de empresa foi comprada pelo Facebook por US$ 85 milhões).
+Depois encontramos também StackMob e o Kinvey sendo este o que mais nos agradou. O Kinvey cobra por usuário cadastrado no sistema,
+sendo os primeiros <strong>1.000 usuários gratuitos</strong>.</p>
+
+<p>O Kinvey tem um excelente <a href="http://devcenter.kinvey.com/html5/guides/getting-started">tutorial</a>. Faça um
+"Hello world!" e veja como isso pode simplificar seu dia-a-dia e auxiliar no desenvolvimento de protótipos, provas de conceito
+e tudo isso sem gastar nada.</p>
+
+<h3>Link's</h3>
+
+<ul>
+<li><a href="http://www.kinvey.com/">http://www.kinvey.com/</a></li>
+<li><a href="https://parse.com/">https://parse.com/</a></li>
+<li><a href="https://www.stackmob.com/">https://www.stackmob.com/</a></li>
+<li><a href="http://www.optimusmobility.com/2013/04/05/top-5-backend-as-a-service-providers-for-mobile/">http://www.optimusmobility.com/2013/04/05/top-5-backend-as-a-service-providers-for-mobile/</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
