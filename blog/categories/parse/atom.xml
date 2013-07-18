@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Parse | Italo Queiroz]]></title>
   <link href="http://italoqueiroz.github.com/blog/categories/parse/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
-  <updated>2013-07-18T15:51:22-03:00</updated>
+  <updated>2013-07-18T15:57:37-03:00</updated>
   <id>http://italoqueiroz.github.com/</id>
   <author>
     <name><![CDATA[Italo Queiroz]]></name>
@@ -35,7 +35,7 @@ na grande maioria temos SDK's bem desenvolvidos com componentes robustos como:</
 <li><p><strong>Serviços de armazenamento de arquivos</strong> - Muitos usam S3 da amazon para otimizar este serviço</p></li>
 <li><p><strong>Geoqueries</strong> - É possível montar querys de localização de forma rápida. Ex: Você precisa encontrar pessoas no raio de 1km.</p></li>
 <li><p><strong>ACL</strong> - Controle de acesso feita a nível de usuário, perfil, collection (abstração de tabelas NoSQL).</p></li>
-<li><p><strong>Aplicativo</strong> Offline - Para app's mobile essa funcionalidade é essencial, ele salva os registros localmente e em alguns SDK's a sincronia é feita automaticamente assim que o app fique online.</p></li>
+<li><p><strong>Aplicativo Offline</strong> - Para app's mobile essa funcionalidade é essencial, ele salva os registros localmente e em alguns SDK's a sincronia é feita automaticamente assim que o app fique online.</p></li>
 <li><p><strong>Gestão de usuários</strong> - Cadastro, recuperação de senha, login, envio de email. Tudo pronto.</p></li>
 </ol>
 
