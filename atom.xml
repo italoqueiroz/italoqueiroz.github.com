@@ -4,7 +4,7 @@
   <title><![CDATA[Italo Queiroz]]></title>
   <link href="http://italoqueiroz.github.com/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
-  <updated>2013-07-18T15:57:37-03:00</updated>
+  <updated>2013-12-11T18:13:06-02:00</updated>
   <id>http://italoqueiroz.github.com/</id>
   <author>
     <name><![CDATA[Italo Queiroz]]></name>
@@ -12,6 +12,117 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[jHandlebars - v1.0.0]]></title>
+    <link href="http://italoqueiroz.github.com/blog/2013/12/11/jhandlebars-v1-dot-0-0/"/>
+    <updated>2013-12-11T15:36:00-02:00</updated>
+    <id>http://italoqueiroz.github.com/blog/2013/12/11/jhandlebars-v1-dot-0-0</id>
+    <content type="html"><![CDATA[<p>Ontem lancei a nova versão do plugin <a href="https://github.com/italoqueiroz/jHandlebars/" title="jHandlebars">jHandlebars</a> v1.0.0. Também realizei o cadastro do plugin no <a href="bower.io" title="BOWER">BOWER</a>. Corrigi alguns bugs :P e adicionei melhorias.</p>
+
+<h2>Instalação:</h2>
+
+<pre><code>$ bower install jhandlebars
+</code></pre>
+
+<h2>Colocando para rodar:</h2>
+
+<p>Para utilizar o plugin corretamente você deve importar as libs da jQuery e Handlebars.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;jquery.jhandlebars.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Alguns exemplos:</h2>
+
+<ul>
+<li>Exemplo 1:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#element&quot;</span><span class="p">).</span><span class="nx">handlebars</span><span class="p">({</span>
+</span><span class='line'>      <span class="nx">json</span><span class="o">:</span> <span class="s1">&#39;http://yourLocation.com.br/data.json&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">template</span><span class="o">:</span><span class="s1">&#39;&lt;div class=&quot;entry&quot;&gt;&lt;h1&gt;jHandlebars&lt;/h1&gt;&lt;div class=&quot;body&quot;&gt;&lt;/div&gt;&lt;/div&gt;&#39;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Exemplo 2:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#element&quot;</span><span class="p">).</span><span class="nx">handlebars</span><span class="p">({</span>
+</span><span class='line'>      <span class="nx">json</span><span class="o">:</span><span class="p">{</span><span class="nx">title</span><span class="o">:</span><span class="s1">&#39;Meu título&#39;</span><span class="p">},</span>
+</span><span class='line'>      <span class="nx">template</span><span class="o">:</span><span class="s1">&#39;http://yourLocation.com.br/template.html&#39;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Exemplo 3:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#element&quot;</span><span class="p">).</span><span class="nx">handlebars</span><span class="p">({</span>
+</span><span class='line'>      <span class="nx">json</span><span class="o">:</span><span class="s1">&#39;http://yourLocation.com.br/data.json&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">template</span><span class="o">:</span><span class="s1">&#39;http://yourLocation.com.br/template.html&#39;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Exemplo 4:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#element&quot;</span><span class="p">).</span><span class="nx">handlebars</span><span class="p">({</span>
+</span><span class='line'>      <span class="nx">json</span><span class="o">:</span> <span class="p">{</span><span class="nx">title</span><span class="o">:</span><span class="s1">&#39;Meu título&#39;</span><span class="p">},</span>
+</span><span class='line'>      <span class="nx">template</span><span class="o">:</span><span class="s1">&#39;&lt;div class=&quot;entry&quot;&gt;&lt;h1&gt;jHandlebars&lt;/h1&gt;&lt;div class=&quot;body&quot;&gt;&lt;/div&gt;&lt;/div&gt;&#39;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ainda não conhece <a href="http://handlebarsjs.com/" title="Handlebars">Handlebars?</a> Então não perca tempo, adicione esta lib em suas leituras e veja o quanto sua vida mudará depois disso :D.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[BaaS - Backend as a service]]></title>

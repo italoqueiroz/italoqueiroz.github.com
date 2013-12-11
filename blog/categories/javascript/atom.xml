@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Javascript | Italo Queiroz]]></title>
+  <title><![CDATA[Categoria: Javascript | Italo Queiroz]]></title>
   <link href="http://italoqueiroz.github.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
-  <updated>2013-07-18T15:57:37-03:00</updated>
+  <updated>2013-12-11T18:13:06-02:00</updated>
   <id>http://italoqueiroz.github.com/</id>
   <author>
     <name><![CDATA[Italo Queiroz]]></name>
@@ -12,6 +12,109 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[jHandlebars - v1.0.0]]></title>
+    <link href="http://italoqueiroz.github.com/blog/2013/12/11/jhandlebars-v1-dot-0-0/"/>
+    <updated>2013-12-11T15:36:00-02:00</updated>
+    <id>http://italoqueiroz.github.com/blog/2013/12/11/jhandlebars-v1-dot-0-0</id>
+    <content type="html"><![CDATA[<p>Ontem lancei a nova versão do plugin <a href="https://github.com/italoqueiroz/jHandlebars/" title="jHandlebars">jHandlebars</a> v1.0.0. Também realizei o cadastro do plugin no <a href="bower.io" title="BOWER">BOWER</a>. Corrigi alguns bugs :P e adicionei melhorias.</p>
+
+<h2>Instalação:</h2>
+
+<pre><code>$ bower install jhandlebars
+</code></pre>
+
+<h2>Colocando para rodar:</h2>
+
+<p>Para utilizar o plugin corretamente você deve importar as libs da jQuery e Handlebars.</p>
+
+<p>```html</p>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+
+<script type="text/javascript" src="http://italoqueiroz.github.com//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
+
+
+<script type="text/javascript" src="jquery.jhandlebars.js"></script>
+
+
+<p>```</p>
+
+<h2>Alguns exemplos:</h2>
+
+<ul>
+<li>Exemplo 1:</li>
+</ul>
+
+
+<p>```javascript
+$(document).ready(function(){</p>
+
+<pre><code>$("#element").handlebars({
+  json: 'http://yourLocation.com.br/data.json', 
+  template:'&lt;div class="entry"&gt;&lt;h1&gt;jHandlebars&lt;/h1&gt;&lt;div class="body"&gt;&lt;/div&gt;&lt;/div&gt;'
+});
+</code></pre>
+
+<p>});
+```</p>
+
+<ul>
+<li>Exemplo 2:</li>
+</ul>
+
+
+<p>```javascript
+$(document).ready(function(){</p>
+
+<pre><code>$("#element").handlebars({
+  json:{title:'Meu título'},
+  template:'http://yourLocation.com.br/template.html'
+});
+</code></pre>
+
+<p>});
+```</p>
+
+<ul>
+<li>Exemplo 3:</li>
+</ul>
+
+
+<p>```javascript
+$(document).ready(function(){</p>
+
+<pre><code>$("#element").handlebars({
+  json:'http://yourLocation.com.br/data.json',
+  template:'http://yourLocation.com.br/template.html'
+});
+</code></pre>
+
+<p>});
+```</p>
+
+<ul>
+<li>Exemplo 4:</li>
+</ul>
+
+
+<p>```javascript
+$(document).ready(function(){</p>
+
+<pre><code>$("#element").handlebars({
+  json: {title:'Meu título'},
+  template:'&lt;div class="entry"&gt;&lt;h1&gt;jHandlebars&lt;/h1&gt;&lt;div class="body"&gt;&lt;/div&gt;&lt;/div&gt;'
+});
+</code></pre>
+
+<p>});
+```</p>
+
+<p>Ainda não conhece <a href="http://handlebarsjs.com/" title="Handlebars">Handlebars?</a> Então não perca tempo, adicione esta lib em suas leituras e veja o quanto sua vida mudará depois disso :D.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Criando templates com HandleBars]]></title>
