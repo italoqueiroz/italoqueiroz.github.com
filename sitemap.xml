@@ -2,68 +2,74 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/04/primeiro-post/</loc>
-        <lastmod>2013-07-18T15:48:36-03:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/04/meteor/</loc>
-        <lastmod>2013-07-18T15:48:36-03:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/06/handlebars-ou-ejs/</loc>
-        <lastmod>2013-12-11T16:27:29-02:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
     </url>
     <url>
         <loc>
             http://italoqueiroz.github.com/blog/2012/10/09/criando-templates-com-handlebars/
         </loc>
-        <lastmod>2013-07-18T15:48:36-03:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/11/atualizando-o-php-no-mac-os/</loc>
-        <lastmod>2013-07-18T15:48:36-03:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/17/criando-widget-usando-jquery/</loc>
-        <lastmod>2013-07-18T15:48:36-03:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/10/27/plugin-jquery-para-handlebars/</loc>
-        <lastmod>2013-07-18T15:48:36-03:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/11/21/vagrant/</loc>
-        <lastmod>2013-07-18T15:48:36-03:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2012/12/06/zend-framework-certification/</loc>
-        <lastmod>2013-07-18T15:48:36-03:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
     </url>
     <url>
         <loc>
             http://italoqueiroz.github.com/blog/2013/01/21/codigo-php-voce-segue-algum-padrao/
         </loc>
-        <lastmod>2013-07-18T15:48:36-03:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
     </url>
     <url>
         <loc>
             http://italoqueiroz.github.com/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/
         </loc>
-        <lastmod>2013-07-18T15:48:36-03:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2013/07/15/baas-backend-as-a-service/</loc>
-        <lastmod>2013-07-18T15:56:39-03:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/2013/12/11/jhandlebars-v1-dot-0-0/</loc>
-        <lastmod>2013-12-11T16:32:49-02:00</lastmod>
+        <lastmod>2014-02-25T17:07:17-03:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://italoqueiroz.github.com/blog/2014/02/25/number-swbsb-startup-weekend-brasilia/
+        </loc>
+        <lastmod>2014-02-25T18:29:13-03:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/blog/archives/</loc>
-        <lastmod>2013-12-11T16:32:49-02:00</lastmod>
+        <lastmod>2014-02-25T18:29:13-03:00</lastmod>
     </url>
     <url>
         <loc>http://italoqueiroz.github.com/</loc>
-        <lastmod>2013-12-11T16:32:49-02:00</lastmod>
+        <lastmod>2014-02-25T18:29:13-03:00</lastmod>
     </url>
 </urlset>
