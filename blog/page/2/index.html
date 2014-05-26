@@ -111,6 +111,300 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/10/17/criando-widget-usando-jquery/">Criando Widget Usando jQuery</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">por <span class="fn">Italo Queiroz</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-17T18:01:00-03:00" pubdate data-updated="true">17/10/2012 18:01</time> - 
+        
+
+falando sobre:
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/widget/'>Widget</a>, <a class='category' href='/blog/categories/jquery/'>jQuery</a>
+  
+</span>
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Atualmente a moda é <span class="bobagem">namorar pelado</span> Widget&#8217;s, que são componentes de interface que fornecem uma funcionalidade específica. Acessando o site da jQueryUI encontrei este link
+<a href="http://wiki.jqueryui.com/w/page/12138135/Widget%20factory">Widget Factory</a>.</p>
+
+<p>Montei o exemplo a seguir tentando repassa o que consegui abstrair dos conceitos informados pela jQueryUI.</p>
+
+<p>Primeiro iremos criar 2 arquivos <strong>index.html</strong>  e <strong>jquery.custom.list.js</strong></p>
+
+<p>No <strong>index.html</strong> montaremos uma estrutura simples de html adicionando algumas chamadas para as libs da jQuery (v 1.8) e jQueryUI (v 1.9).</p>
+
+<figure class='code'><figcaption><span>index.html  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+</span><span class='line'><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en-US&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery-1.8.2.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/ui/1.9.0/jquery-ui.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;jquery.custom.list.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">table</span> <span class="nt">td</span><span class="o">,</span> <span class="nt">table</span> <span class="nt">th</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">padding</span><span class="o">:</span><span class="m">5px</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="nt">&lt;/style&gt;</span>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;demo&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span><span class='line'><span class="nt">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>O jquery.custom.list.js será o arquivo onde criaremos nosso widget.</p>
+
+<figure class='code'><figcaption><span>jquery.custom.list.js  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">widget</span><span class="p">(</span><span class="s2">&quot;custom.list&quot;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// default options</span>
+</span><span class='line'>    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">data</span><span class="o">:</span> <span class="p">[],</span>
+</span><span class='line'>      <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;nome&#39;</span><span class="p">,</span> <span class="s1">&#39;idade&#39;</span><span class="p">]</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">htmlTable</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Construtor</span>
+</span><span class='line'>    <span class="nx">_create</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;construtor&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;custom-list&#39;</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">_refresh</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Este método é chamada assim que for criado e quando for alterada as opções.</span>
+</span><span class='line'>    <span class="nx">_refresh</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="c1">//verifica se foi informado os dados.</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_createTable</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_createHeaderTable</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_createBodyTable</span><span class="p">();</span>
+</span><span class='line'>      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;div&gt;&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="s2">&quot;custon-list-alert&quot;</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span><span class="s2">&quot;Não existem registros&quot;</span><span class="p">})</span>
+</span><span class='line'>          <span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Método privado que cria a tabela</span>
+</span><span class='line'>    <span class="nx">_createTable</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;&lt;table&gt;&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Método privado que cria o cabeçalho</span>
+</span><span class='line'>    <span class="nx">_createHeaderTable</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">headerTable</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;thead&gt;&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;tr&gt;&#39;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">headerTable</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">columns</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">column</span><span class="p">){</span>
+</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;th&gt;&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">text</span><span class="o">:</span><span class="nx">column</span><span class="p">,</span> <span class="kr">class</span><span class="o">:</span><span class="s1">&#39;ui-widget-header&#39;</span><span class="p">}).</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">headerTable</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">));</span>
+</span><span class='line'>      <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">headerTable</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Método privado que monta o corpo da tabela com os dados passados.</span>
+</span><span class='line'>    <span class="nx">_createBodyTable</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">bodyTable</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;tbody&gt;&#39;</span><span class="p">),</span>
+</span><span class='line'>      <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">data</span><span class="p">){</span>
+</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;tr&gt;&#39;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">bodyTable</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">columns</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">column</span><span class="p">){</span>
+</span><span class='line'>          <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;td&gt;&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">column</span><span class="p">]</span><span class="o">?</span><span class="nx">data</span><span class="p">[</span><span class="nx">column</span><span class="p">]</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">,</span> <span class="kr">class</span><span class="o">:</span><span class="s1">&#39;ui-state-default&#39;</span><span class="p">}).</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">bodyTable</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;tr:last-child&#39;</span><span class="p">));</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>      <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">bodyTable</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Responsável por remover o plugin e fazer as limpezas necessárias.</span>
+</span><span class='line'>    <span class="nx">_destroy</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;custom-list&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Este método é chamado sempre que uma opção é alterada</span>
+</span><span class='line'>    <span class="c1">// e toda vez que uma opção é alterada atualizamos nosso widget.</span>
+</span><span class='line'>    <span class="nx">_setOptions</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="c1">// _super and _superApply continuam a manipulação correta dos argumentos passados.</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">_superApply</span><span class="p">(</span> <span class="nx">arguments</span> <span class="p">);</span>
+</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">_refresh</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>No início do arquivo temos a chamada do $.widget que tem como primeiro parâmetro o namespace (custom) e nome (list) do seu plugin, caso  o namespace não exista a jQuery já criara a instância.<br />
+O segundo parâmetro é o objeto widget de onde você deseja herdar, podendo este também ser um novo objeto.<br />
+Terceiro parâmetro são as configurações que você deseja adicionar ou sobrescrever no widget herdado.</p>
+
+<p>Como você pode perceber temos alguns métodos que iniciam com &#8220;&#95;&#8221; (underscore), este são métodos privados (por convenção) não podem ser acessados Ex: $(‘#demo’).list(‘&#95;create’)</p>
+
+<p>São necessários a princípio as seguintes implementações:</p>
+
+<h3>options: Com as opções default do seu widget.</h3>
+
+<h3>_create: Que é o construtor do seu widget.</h3>
+
+<h3>_destroy: Que é o seu lixeiro, assim que acionado ele remove o widget e você pode informar demais procedimentos para a “limpeza” do DOM.</h3>
+
+<p>Adicionei meus métodos privados:<br />
+&#95;refresh, &#95;createTable, &#95;createHeaderTable, &#95;createBodyTable.</p>
+
+<p>E sobrescrevi o setOptions, pois sempre que for alterado meus options o widget será atualizado (&#95;refresh).</p>
+
+<p>Abra o console do seu navegador e tente as seguintes instruções de cada vez:<br />
+$(&#8216;#demo&#8217;).list(&#8216;option&#8217;, &#8216;columns&#8217;, [&#8216;nome&#8217;]);<br />
+$(&#8216;#demo&#8217;).list(&#8216;option&#8217;, &#8216;data&#8217;, [{nome:&#8217;Nome de alguém&#8217;, idade:43}]);<br />
+$(&#8216;#demo&#8217;).data(&#8216;list&#8217;)._refresh;<br />
+$(&#8216;#demo&#8217;).list(&#8216;destroy&#8217;);<br /></p>
+
+<p><a href="https://github.com/italoqueiroz/widgetExemplo">Link do código no GitHub</a></p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/10/11/atualizando-o-php-no-mac-os/">Atualizando O PHP No MAC OS</a></h1>
     
     
@@ -753,6 +1047,10 @@ falando sobre:
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/2014/05/21/mongo/">Mongo, Mongol, Mongolão</a>
+        </li>
+      
+        <li>
           <a href="/blog/2014/02/25/number-swbsb-startup-weekend-brasilia/">#SWBSB - StartUp Weekend Brasília</a>
         </li>
       
@@ -766,10 +1064,6 @@ falando sobre:
       
         <li>
           <a href="/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/">Instalando MongoDB no Ubuntu e habilitando extensão no ZendServer</a>
-        </li>
-      
-        <li>
-          <a href="/blog/2013/01/21/codigo-php-voce-segue-algum-padrao/">Código PHP - Você segue algum padrão?</a>
         </li>
       
     </ul>

@@ -111,6 +111,284 @@
 
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/05/21/mongo/">Mongo, Mongol, Mongolão</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">por <span class="fn">Italo Queiroz</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-21T20:01:00-03:00" pubdate data-updated="true">21/05/2014 20:01</time> - 
+        
+
+falando sobre:
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mongodb/'>MongoDB</a>, <a class='category' href='/blog/categories/nosql/'>NoSQL</a>
+  
+</span>
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>O que é esse MongoDB?</h3>
+
+<center>
+<iframe style="align:center" src="https://giphy.com/embed/7B6hvCLsQQBPO" width="500" height="230" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</center>
+
+
+<p>É um banco de dados orientado a documentos, classificado como NoSQL e foi escrito em C++.</p>
+
+<p>Ok!? Mas o que é um banco de dados orientado a documentos? É uma estrutura que tenta fugir do modelo relacional (MySQL, Postgress, Oracle) que durante muito tempo foi utilizado como bala de prata. Creio que o grande aumento das startups e suas constantes mudanças em seus produtos (App&#8217;s) fez com que essa estrutura relacional fosse deixada de lado e a opção por um modelo mais adaptável e flexivél colocada em pauta. :D</p>
+
+<p>O MongoDB possui <strong>Collections</strong> que no modelo relacional seriam as <strong>Tabelas</strong>, possui <strong>Documents</strong> que no modelo relacional seriam as <strong>Row</strong>. Mas a grande diferença entre estes modelos é que a Collection não influencia em nada na estrutura de seus Documents.</p>
+
+<p>Ex:
+Se você tivesse uma gaveta com o nome &#8220;Gaveta de contratos&#8221; nela teriamos apenas contratos guardados, pois você definiu um padrão para aquela gaveta e se assemelha com o modelo relacional. Agora pensando no modelo orientado a documentos nós teriamos uma &#8220;Gaveta&#8221; e dentro dela poderiamos guardar contratos, donuts, remédios e revólver :D. Fica critério do desenvolvedor sua forma de organização. E que pode ser muito bem alterada depois sem grande complicações, algo que no modelo relacional gera uma leve dor de cabeça.</p>
+
+<p>Os <strong>Documents</strong> são representados por um conjunto de dados em formato JSON, mas estes documentos quando inseridos são convertidos para um formato mais rico chamado BSON (serialização, junção de Binário com JSON) que dá muito mais performace aos seus dados e as operações que os afetam (Find, Update, Delete, etc.).</p>
+
+<p>O nome Mongo vem de &#8220;humongous&#8221; que significa gigantesco (ou grande, enorme, monstruoso). MongoDB é livre e de código aberto.</p>
+
+<h3>Quem usa?</h3>
+
+<p>Empresas como: Mailbox, LinkedIn, Parse, SourceForge, eBay, GitHub e <a href="http://www.mongodb.org/about/production-deployments/">mais</a></p>
+
+<center>
+<iframe src="https://giphy.com/embed/Xh1vgIUkJbPKo" width="500" height="271" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</center>
+
+
+<h3>Instalação</h3>
+
+<p>Este post não tem o foco na instalação do MongoDB, <a href="http://docs.mongodb.org/manual/installation/">este link</a> vai ajudar nesta tarefa. Lembrando que o time do MongoDB sugere que seja usada a versão 64-bit.</p>
+
+<center>
+<iframe src="https://giphy.com/embed/DVTv8Jk7cCn60" width="500" height="281" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</center>
+
+
+<h3>Como criar uma Database?</h3>
+
+<p>Então, o MongoDB tem uma característica muito interessante, para usar uma Database não é necessário criá-la anteriormente, o método &#8220;use&#8221; já faz isso, claro, caso a Database não exista.</p>
+
+<figure class='code'><figcaption><span>Mostrar todas as minhas databases  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">show</span> <span class="n">dbs</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Criar/Selecionar minha database  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">use</span> <span class="n">mongol</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Como criar uma Collection?</h3>
+
+<p>Assim como as Databases nossas collections (tabelas) não precisam ser criadas com um comando específico, na hora do insert o MongoDB já verifica a existência da collection e cria se não encontrar (coisa linda de GOD).</p>
+
+<h3>Insert</h3>
+
+<p>Podemos inserir nossos dados assim:</p>
+
+<figure class='code'><figcaption><span>Insert poderoso  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Lloyd Christmas&quot;</span><span class="p">,</span> <span class="s2">&quot;filme&quot;</span><span class="p">:</span> <span class="s2">&quot;Dumb &amp; Dumber&quot;</span><span class="p">,</span> <span class="s2">&quot;ator&quot;</span><span class="p">:</span> <span class="s2">&quot;Jim Carrey&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Como podemos também criar variáveis e referenciá-las no insert</p>
+
+<figure class='code'><figcaption><span>Insert poderoso com variavel  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">usuario</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Harry Débi Dunne&quot;</span><span class="p">,</span> <span class="s2">&quot;filme&quot;</span><span class="p">:</span> <span class="s2">&quot;Dumb &amp; Dumber&quot;</span><span class="p">,</span> <span class="s2">&quot;ator&quot;</span><span class="p">:</span> <span class="s2">&quot;Jeff Daniels&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">59</span><span class="p">};</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">usuario</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note que não criamos nossa collection de &#8220;usuarios&#8221;. Ao rodar este insert o MongoDB irá verificar se a coleção de &#8220;usuarios&#8221; existe, criará se necessário e adicionará os documentos passados para inserção.</p>
+
+<h3>Find</h3>
+
+<figure class='code'><figcaption><span>Find avassalador  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="c1">#busca todos os registros de users</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#busca todos os registros de users </span>
+</span><span class='line'><span class="c1">#e retorna o json formatado</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">()</span><span class="o">.</span><span class="n">pretty</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#busca todos os registros onde</span>
+</span><span class='line'><span class="c1">#ator seja igual a Jim Carrey</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">ator</span><span class="p">:</span> <span class="s2">&quot;Jim Carrey&quot;</span><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#busca todos os registros que</span>
+</span><span class='line'><span class="c1">#tenham  no nome, parecido com o like no SQL</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="sr">/Débi*/i</span><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#busca todos os registros que</span>
+</span><span class='line'><span class="c1">#tenham Débi no nome, parecido com o like no SQL</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="sr">/Débi*/i</span><span class="p">});</span>
+</span><span class='line'><span class="c1">#definindo um objeto regex</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="p">{</span><span class="vg">$regex</span><span class="p">:</span> <span class="s1">&#39;Débi*&#39;</span><span class="p">,</span> <span class="vg">$options</span><span class="p">:</span> <span class="s1">&#39;i&#39;</span><span class="p">}});</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#busca todos os registros de users</span>
+</span><span class='line'><span class="c1">#filtrando as colunas que serão retornadas</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">null</span><span class="p">,</span> <span class="p">{</span><span class="n">nome</span><span class="p">:</span> <span class="mi">1</span><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Olhando o código acima você pode perceber que temos um elemento chamado &#8220;$regex&#8221;, que são operadores de avaliação. Assim como o &#8220;$regex&#8221; existem outros operadores entre eles: $where e $text. Para conhecer mais sobre estes operadores de avaliação <a href="http://docs.mongodb.org/manual/reference/operator/query-evaluation/">clique aqui</a>.</p>
+
+<p>Existem também operadores de comparação que nos permite realizar buscas com definições mais detalhadas. Ex: &#8220;>&#8221;, &#8220;>=&#8221;, &#8220;&lt;&#8221; e &#8220;&lt;=&#8221;.</p>
+
+<figure class='code'><figcaption><span>Find humilhador  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">idade</span><span class="p">:</span> <span class="p">{</span><span class="vg">$gte</span><span class="p">:</span> <span class="mi">50</span><span class="p">}});</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">idade</span><span class="p">:</span> <span class="p">{</span><span class="vg">$gte</span><span class="p">:</span> <span class="mi">54</span><span class="p">}});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>No site do MongoDB tem uma lista com todos os operadores de query, <a href="http://docs.mongodb.org/manual/reference/operator/query/">clique aqui</a> e veja como melhorar suas consultas usando esta excelente ferramenta (momento jabá hehehehe)</p>
+
+<h3>Update</h3>
+
+<figure class='code'><figcaption><span>Update demolidor  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="c1">#atualiza todos os usuários com </span>
+</span><span class='line'><span class="c1">#idade &gt;= 54 anos para 50 anos</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">idade</span><span class="p">:</span> <span class="p">{</span><span class="vg">$gte</span><span class="p">:</span> <span class="mi">54</span><span class="p">}},</span> <span class="p">{</span><span class="vg">$set</span><span class="p">:</span> <span class="p">{</span><span class="n">idade</span><span class="p">:</span> <span class="mi">50</span><span class="p">}});</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#atualiza todos os usuários com </span>
+</span><span class='line'><span class="c1">#idade &gt;= 50 anos para 20 anos</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">idade</span><span class="p">:</span> <span class="p">{</span><span class="vg">$gte</span><span class="p">:</span> <span class="mi">50</span><span class="p">}},</span> <span class="p">{</span><span class="vg">$set</span><span class="p">:</span> <span class="p">{</span><span class="n">idade</span><span class="p">:</span> <span class="mi">20</span><span class="p">}},</span> <span class="p">{</span><span class="n">multi</span><span class="p">:</span> <span class="kp">true</span><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>No primeiro exemplo acima de update ele altera a idade para 50 no primeiro documento que ele encontrar onde idade seja maior igual a 54. Já no segundo ele altera todos os documentos onde a idade seja maior igual a 50.</p>
+
+<h3>Deletar</h3>
+
+<figure class='code'><figcaption><span>Delete deletador :D  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="c1">#remove os documentos onde ator seja igual a Jim Carrey</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">remove</span><span class="p">({</span><span class="n">ator</span><span class="p">:</span> <span class="s2">&quot;Jim Carrey&quot;</span><span class="p">});</span>
+</span><span class='line'><span class="c1">#remove todos os documentos da coleção</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">remove</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Acho que ficou claro o papel do remove nas linhas acima neh? O papel dele é te dar um frio na barriga quando for executá-lo. :D</p>
+
+<h3>Mean IO</h3>
+
+<p>Para galera que está afim de desenvolver uma aplicação média de forma rápida e robusta existe o <a href="http://mean.io/">Mean IO</a> que é uma solução full-stack para ajudar nesse desenvolvimento. Ela é formada por MongoDB, Express, AngularJS e Node.js. No mínimo, ao final desta implementação, terá conhecido ferramentas maravilhosas e ampliado seus conhecimentos.</p>
+
+<center>
+<iframe src="https://giphy.com/embed/P40Gkig2OTlLy" width="500" height="375" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</center>
+
+
+<h3>App&#8217;s para gerenciar sua base MongoDB</h3>
+
+<ul>
+<li><a href="http://www.mongovue.com/">http://www.mongovue.com/</a></li>
+<li><a href="https://www.mongohq.com/">https://www.mongohq.com/</a></li>
+<li><a href="http://www.robomongo.org/">http://www.robomongo.org/</a></li>
+<li><a href="http://mongohub.todayclose.com/">http://mongohub.todayclose.com/</a></li>
+</ul>
+
+
+<h3>Considerações</h3>
+
+<p> Atualmente tenho usado em minha startup serviços NoSQL conhecidos como BaaS, eles ajudam bastante na hora de fornecer SDK&#8217;s e abstrair trabalhos rotineiros como ACL, Confirmação de email, Cadastro de usuário <a href="http://italoqueiroz.github.io/blog/2013/07/15/baas-backend-as-a-service/">clique aqui</a> para saber mais.</p>
+
+<p> Sei que existem várias ferramentas para definirmos nossa arquitetura e não acho que o MongoDB deva ser implementado em todos os seus projetos, mas com certeza você deverá levá-lo em consideração.</p>
+
+<p> Pretendo montar um exemplo em PHP, quando estiver diponível deixo o link aqui abaixo.</p>
+
+<center> 
+<iframe src="https://giphy.com/embed/AeWoyE3ZT90YM" width="500" height="210" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</center>
+
+
+<p></p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span4">
+        <div class="article-format">
+
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/02/25/number-swbsb-startup-weekend-brasilia/">#SWBSB - StartUp Weekend Brasília</a></h1>
     
     
@@ -1169,300 +1447,6 @@ falando sobre:
 
       </article>
     
-    
-      <article class="span4">
-        <div class="article-format">
-
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/10/17/criando-widget-usando-jquery/">Criando Widget Usando jQuery</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-
-  
-    <span class="byline author vcard">por <span class="fn">Italo Queiroz</span></span>
-  
-
- - 
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-17T18:01:00-03:00" pubdate data-updated="true">17/10/2012 18:01</time> - 
-        
-
-falando sobre:
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/widget/'>Widget</a>, <a class='category' href='/blog/categories/jquery/'>jQuery</a>
-  
-</span>
-
-
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Atualmente a moda é <span class="bobagem">namorar pelado</span> Widget&#8217;s, que são componentes de interface que fornecem uma funcionalidade específica. Acessando o site da jQueryUI encontrei este link
-<a href="http://wiki.jqueryui.com/w/page/12138135/Widget%20factory">Widget Factory</a>.</p>
-
-<p>Montei o exemplo a seguir tentando repassa o que consegui abstrair dos conceitos informados pela jQueryUI.</p>
-
-<p>Primeiro iremos criar 2 arquivos <strong>index.html</strong>  e <strong>jquery.custom.list.js</strong></p>
-
-<p>No <strong>index.html</strong> montaremos uma estrutura simples de html adicionando algumas chamadas para as libs da jQuery (v 1.8) e jQueryUI (v 1.9).</p>
-
-<figure class='code'><figcaption><span>index.html  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
-</span><span class='line'><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en-US&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'><span class="nt">&lt;head&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/jquery-1.8.2.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://code.jquery.com/ui/1.9.0/jquery-ui.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;jquery.custom.list.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>      <span class="nt">table</span> <span class="nt">td</span><span class="o">,</span> <span class="nt">table</span> <span class="nt">th</span> <span class="p">{</span>
-</span><span class='line'>          <span class="k">padding</span><span class="o">:</span><span class="m">5px</span><span class="p">;</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>  <span class="nt">&lt;/style&gt;</span>
-</span><span class='line'><span class="nt">&lt;/head&gt;</span>
-</span><span class='line'><span class="nt">&lt;body&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;demo&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-</span><span class='line'><span class="nt">&lt;/body&gt;</span>
-</span><span class='line'><span class="nt">&lt;/html&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>O jquery.custom.list.js será o arquivo onde criaremos nosso widget.</p>
-
-<figure class='code'><figcaption><span>jquery.custom.list.js  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">.</span><span class="nx">widget</span><span class="p">(</span><span class="s2">&quot;custom.list&quot;</span><span class="p">,</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// default options</span>
-</span><span class='line'>    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">data</span><span class="o">:</span> <span class="p">[],</span>
-</span><span class='line'>      <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;nome&#39;</span><span class="p">,</span> <span class="s1">&#39;idade&#39;</span><span class="p">]</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">htmlTable</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">//Construtor</span>
-</span><span class='line'>    <span class="nx">_create</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;construtor&#39;</span><span class="p">);</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;custom-list&#39;</span><span class="p">);</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">_refresh</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">//Este método é chamada assim que for criado e quando for alterada as opções.</span>
-</span><span class='line'>    <span class="nx">_refresh</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="c1">//verifica se foi informado os dados.</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_createTable</span><span class="p">();</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_createHeaderTable</span><span class="p">();</span>
-</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="nx">_createBodyTable</span><span class="p">();</span>
-</span><span class='line'>      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;div&gt;&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span><span class="s2">&quot;custon-list-alert&quot;</span><span class="p">,</span> <span class="nx">text</span><span class="o">:</span><span class="s2">&quot;Não existem registros&quot;</span><span class="p">})</span>
-</span><span class='line'>          <span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">//Método privado que cria a tabela</span>
-</span><span class='line'>    <span class="nx">_createTable</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;&lt;table&gt;&#39;</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">//Método privado que cria o cabeçalho</span>
-</span><span class='line'>    <span class="nx">_createHeaderTable</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">headerTable</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;thead&gt;&#39;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;tr&gt;&#39;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">headerTable</span><span class="p">);</span>
-</span><span class='line'>      <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">columns</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">column</span><span class="p">){</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;th&gt;&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">text</span><span class="o">:</span><span class="nx">column</span><span class="p">,</span> <span class="kr">class</span><span class="o">:</span><span class="s1">&#39;ui-widget-header&#39;</span><span class="p">}).</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">headerTable</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">));</span>
-</span><span class='line'>      <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">headerTable</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">//Método privado que monta o corpo da tabela com os dados passados.</span>
-</span><span class='line'>    <span class="nx">_createBodyTable</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="kd">var</span> <span class="nx">bodyTable</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;tbody&gt;&#39;</span><span class="p">),</span>
-</span><span class='line'>      <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">data</span><span class="p">){</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;tr&gt;&#39;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">bodyTable</span><span class="p">);</span>
-</span><span class='line'>        <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">columns</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">column</span><span class="p">){</span>
-</span><span class='line'>          <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;td&gt;&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">column</span><span class="p">]</span><span class="o">?</span><span class="nx">data</span><span class="p">[</span><span class="nx">column</span><span class="p">]</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">,</span> <span class="kr">class</span><span class="o">:</span><span class="s1">&#39;ui-state-default&#39;</span><span class="p">}).</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">bodyTable</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;tr:last-child&#39;</span><span class="p">));</span>
-</span><span class='line'>        <span class="p">});</span>
-</span><span class='line'>      <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">bodyTable</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">//Responsável por remover o plugin e fazer as limpezas necessárias.</span>
-</span><span class='line'>    <span class="nx">_destroy</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;custom-list&#39;</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// Este método é chamado sempre que uma opção é alterada</span>
-</span><span class='line'>    <span class="c1">// e toda vez que uma opção é alterada atualizamos nosso widget.</span>
-</span><span class='line'>    <span class="nx">_setOptions</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="c1">// _super and _superApply continuam a manipulação correta dos argumentos passados.</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">_superApply</span><span class="p">(</span> <span class="nx">arguments</span> <span class="p">);</span>
-</span><span class='line'>      <span class="k">this</span><span class="p">.</span><span class="nx">_refresh</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>  <span class="p">});</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>No início do arquivo temos a chamada do $.widget que tem como primeiro parâmetro o namespace (custom) e nome (list) do seu plugin, caso  o namespace não exista a jQuery já criara a instância.<br />
-O segundo parâmetro é o objeto widget de onde você deseja herdar, podendo este também ser um novo objeto.<br />
-Terceiro parâmetro são as configurações que você deseja adicionar ou sobrescrever no widget herdado.</p>
-
-<p>Como você pode perceber temos alguns métodos que iniciam com &#8220;&#95;&#8221; (underscore), este são métodos privados (por convenção) não podem ser acessados Ex: $(‘#demo’).list(‘&#95;create’)</p>
-
-<p>São necessários a princípio as seguintes implementações:</p>
-
-<h3>options: Com as opções default do seu widget.</h3>
-
-<h3>_create: Que é o construtor do seu widget.</h3>
-
-<h3>_destroy: Que é o seu lixeiro, assim que acionado ele remove o widget e você pode informar demais procedimentos para a “limpeza” do DOM.</h3>
-
-<p>Adicionei meus métodos privados:<br />
-&#95;refresh, &#95;createTable, &#95;createHeaderTable, &#95;createBodyTable.</p>
-
-<p>E sobrescrevi o setOptions, pois sempre que for alterado meus options o widget será atualizado (&#95;refresh).</p>
-
-<p>Abra o console do seu navegador e tente as seguintes instruções de cada vez:<br />
-$(&#8216;#demo&#8217;).list(&#8216;option&#8217;, &#8216;columns&#8217;, [&#8216;nome&#8217;]);<br />
-$(&#8216;#demo&#8217;).list(&#8216;option&#8217;, &#8216;data&#8217;, [{nome:&#8217;Nome de alguém&#8217;, idade:43}]);<br />
-$(&#8216;#demo&#8217;).data(&#8216;list&#8217;)._refresh;<br />
-$(&#8216;#demo&#8217;).list(&#8216;destroy&#8217;);<br /></p>
-
-<p><a href="https://github.com/italoqueiroz/widgetExemplo">Link do código no GitHub</a></p>
-</div>
-  
-  
-
-
-</div>
-
-      </article>
-    
     </div>
       <div class="row">
         <ul class="pager">
@@ -1486,6 +1470,10 @@ $(&#8216;#demo&#8217;).list(&#8216;destroy&#8217;);<br /></p>
     <ul class="recent_posts">
       
         <li>
+          <a href="/blog/2014/05/21/mongo/">Mongo, Mongol, Mongolão</a>
+        </li>
+      
+        <li>
           <a href="/blog/2014/02/25/number-swbsb-startup-weekend-brasilia/">#SWBSB - StartUp Weekend Brasília</a>
         </li>
       
@@ -1499,10 +1487,6 @@ $(&#8216;#demo&#8217;).list(&#8216;destroy&#8217;);<br /></p>
       
         <li>
           <a href="/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/">Instalando MongoDB no Ubuntu e habilitando extensão no ZendServer</a>
-        </li>
-      
-        <li>
-          <a href="/blog/2013/01/21/codigo-php-voce-segue-algum-padrao/">Código PHP - Você segue algum padrão?</a>
         </li>
       
     </ul>

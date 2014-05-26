@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Categoria: MongoDB | Italo Queiroz]]></title>
-  <link href="http://italoqueiroz.github.com/blog/categories/mongodb/atom.xml" rel="self"/>
+  <title><![CDATA[Categoria: NoSQL | Italo Queiroz]]></title>
+  <link href="http://italoqueiroz.github.com/blog/categories/nosql/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
   <updated>2014-05-26T12:42:07-03:00</updated>
   <id>http://italoqueiroz.github.com/</id>
@@ -284,64 +284,6 @@ Se você tivesse uma gaveta com o nome "Gaveta de contratos" nela teriamos apena
 
 
 <p></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Instalando MongoDB no Ubuntu e habilitando extensão no ZendServer]]></title>
-    <link href="http://italoqueiroz.github.com/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver/"/>
-    <updated>2013-01-28T20:16:00-02:00</updated>
-    <id>http://italoqueiroz.github.com/blog/2013/01/28/instalando-mongodb-no-ubuntu-e-habilitando-extensao-no-zendserver</id>
-    <content type="html"><![CDATA[<p>Pois bem, a instalação do MongoDB pra quem já tentou é um pouco chata e complicada no primeiro momento. Alguns erros ocorrem dificultando a instalação e podem desistimular alguns desenvolvedores a usarem.</p>
-
-<p>Montei uma VM Ubuntu com Vagrant para ter histórico de todos os comandos necessários, então para começar abra o terminal e siga os passos abaixo:</p>
-
-<ol>
-<li><strong>1) Importe a chave(GPG key) 10gen, necessária para pacotes Ubuntu:</strong>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
-</span></code></pre></td></tr></table></div></figure></notextile></div></li>
-<li><strong>2) Crie um arquivo em "/etc/apt/sources.list.d/10gen.list" adicionando o caminho do repositório:</strong>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
-</span></code></pre></td></tr></table></div></figure></notextile></div></li>
-<li><strong>3) Recarregue o apt-get</strong>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get update
-</span></code></pre></td></tr></table></div></figure></notextile></div></li>
-<li><strong>4) Instale o pacote</strong>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install mongodb-10gen
-</span></code></pre></td></tr></table></div></figure></notextile></div></li>
-<li><strong>5) Instale o automake e autoconf, necessário para utilizar o phpize</strong>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo apt-get install automake
-</span><span class='line'>sudo apt-get install autoconf
-</span></code></pre></td></tr></table></div></figure></notextile></div></li>
-<li><strong>6) Instale a extensão via pecl do ZendServer</strong>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo /usr/local/zend/bin/pecl install mongo
-</span></code></pre></td></tr></table></div></figure></notextile></div></li>
-<li><strong>7) Abra o painel do ZendServer(http://localhost:10081/) e no caminho "Server Setup > Extensions" habilite a extensão do mongo clicando em "Turn on"</strong></li>
-</ol>
-
-
-<br />
-
-
-<ol>
-<li><strong>8) Reinicie o apache</strong>
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>sudo /usr/local/zend/bin/zendctl restart
-</span></code></pre></td></tr></table></div></figure></notextile></div></li>
-</ol>
-
-
-<p>Espero que após estes 8 passos você tenha o mongo instalado em seu Ubuntu e a extensão habilitada no PHP.</p>
-
-<p>Link de referência:
-<a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/">MongoDb on Ubuntu</a></p>
 ]]></content>
   </entry>
   

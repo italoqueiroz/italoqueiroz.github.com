@@ -4,7 +4,7 @@
   <title><![CDATA[Italo Queiroz]]></title>
   <link href="http://italoqueiroz.github.com/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
-  <updated>2014-02-25T19:05:37-03:00</updated>
+  <updated>2014-05-26T12:42:07-03:00</updated>
   <id>http://italoqueiroz.github.com/</id>
   <author>
     <name><![CDATA[Italo Queiroz]]></name>
@@ -12,6 +12,235 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mongo, Mongol, Mongolão]]></title>
+    <link href="http://italoqueiroz.github.com/blog/2014/05/21/mongo/"/>
+    <updated>2014-05-21T20:01:00-03:00</updated>
+    <id>http://italoqueiroz.github.com/blog/2014/05/21/mongo</id>
+    <content type="html"><![CDATA[<h3>O que é esse MongoDB?</h3>
+
+<center>
+<iframe style="align:center" src="https://giphy.com/embed/7B6hvCLsQQBPO" width="500" height="230" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</center>
+
+
+<p>É um banco de dados orientado a documentos, classificado como NoSQL e foi escrito em C++.</p>
+
+<p>Ok!? Mas o que é um banco de dados orientado a documentos? É uma estrutura que tenta fugir do modelo relacional (MySQL, Postgress, Oracle) que durante muito tempo foi utilizado como bala de prata. Creio que o grande aumento das startups e suas constantes mudanças em seus produtos (App&#8217;s) fez com que essa estrutura relacional fosse deixada de lado e a opção por um modelo mais adaptável e flexivél colocada em pauta. :D</p>
+
+<p>O MongoDB possui <strong>Collections</strong> que no modelo relacional seriam as <strong>Tabelas</strong>, possui <strong>Documents</strong> que no modelo relacional seriam as <strong>Row</strong>. Mas a grande diferença entre estes modelos é que a Collection não influencia em nada na estrutura de seus Documents.</p>
+
+<p>Ex:
+Se você tivesse uma gaveta com o nome &#8220;Gaveta de contratos&#8221; nela teriamos apenas contratos guardados, pois você definiu um padrão para aquela gaveta e se assemelha com o modelo relacional. Agora pensando no modelo orientado a documentos nós teriamos uma &#8220;Gaveta&#8221; e dentro dela poderiamos guardar contratos, donuts, remédios e revólver :D. Fica critério do desenvolvedor sua forma de organização. E que pode ser muito bem alterada depois sem grande complicações, algo que no modelo relacional gera uma leve dor de cabeça.</p>
+
+<p>Os <strong>Documents</strong> são representados por um conjunto de dados em formato JSON, mas estes documentos quando inseridos são convertidos para um formato mais rico chamado BSON (serialização, junção de Binário com JSON) que dá muito mais performace aos seus dados e as operações que os afetam (Find, Update, Delete, etc.).</p>
+
+<p>O nome Mongo vem de &#8220;humongous&#8221; que significa gigantesco (ou grande, enorme, monstruoso). MongoDB é livre e de código aberto.</p>
+
+<h3>Quem usa?</h3>
+
+<p>Empresas como: Mailbox, LinkedIn, Parse, SourceForge, eBay, GitHub e <a href="http://www.mongodb.org/about/production-deployments/">mais</a></p>
+
+<center>
+<iframe src="https://giphy.com/embed/Xh1vgIUkJbPKo" width="500" height="271" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</center>
+
+
+<h3>Instalação</h3>
+
+<p>Este post não tem o foco na instalação do MongoDB, <a href="http://docs.mongodb.org/manual/installation/">este link</a> vai ajudar nesta tarefa. Lembrando que o time do MongoDB sugere que seja usada a versão 64-bit.</p>
+
+<center>
+<iframe src="https://giphy.com/embed/DVTv8Jk7cCn60" width="500" height="281" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</center>
+
+
+<h3>Como criar uma Database?</h3>
+
+<p>Então, o MongoDB tem uma característica muito interessante, para usar uma Database não é necessário criá-la anteriormente, o método &#8220;use&#8221; já faz isso, claro, caso a Database não exista.</p>
+
+<figure class='code'><figcaption><span>Mostrar todas as minhas databases  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">show</span> <span class="n">dbs</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Criar/Selecionar minha database  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">use</span> <span class="n">mongol</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Como criar uma Collection?</h3>
+
+<p>Assim como as Databases nossas collections (tabelas) não precisam ser criadas com um comando específico, na hora do insert o MongoDB já verifica a existência da collection e cria se não encontrar (coisa linda de GOD).</p>
+
+<h3>Insert</h3>
+
+<p>Podemos inserir nossos dados assim:</p>
+
+<figure class='code'><figcaption><span>Insert poderoso  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">insert</span><span class="p">({</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Lloyd Christmas&quot;</span><span class="p">,</span> <span class="s2">&quot;filme&quot;</span><span class="p">:</span> <span class="s2">&quot;Dumb &amp; Dumber&quot;</span><span class="p">,</span> <span class="s2">&quot;ator&quot;</span><span class="p">:</span> <span class="s2">&quot;Jim Carrey&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Como podemos também criar variáveis e referenciá-las no insert</p>
+
+<figure class='code'><figcaption><span>Insert poderoso com variavel  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">usuario</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Harry Débi Dunne&quot;</span><span class="p">,</span> <span class="s2">&quot;filme&quot;</span><span class="p">:</span> <span class="s2">&quot;Dumb &amp; Dumber&quot;</span><span class="p">,</span> <span class="s2">&quot;ator&quot;</span><span class="p">:</span> <span class="s2">&quot;Jeff Daniels&quot;</span><span class="p">,</span> <span class="s2">&quot;idade&quot;</span><span class="p">:</span> <span class="mi">59</span><span class="p">};</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">usuario</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note que não criamos nossa collection de &#8220;usuarios&#8221;. Ao rodar este insert o MongoDB irá verificar se a coleção de &#8220;usuarios&#8221; existe, criará se necessário e adicionará os documentos passados para inserção.</p>
+
+<h3>Find</h3>
+
+<figure class='code'><figcaption><span>Find avassalador  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="c1">#busca todos os registros de users</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#busca todos os registros de users </span>
+</span><span class='line'><span class="c1">#e retorna o json formatado</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">()</span><span class="o">.</span><span class="n">pretty</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#busca todos os registros onde</span>
+</span><span class='line'><span class="c1">#ator seja igual a Jim Carrey</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">ator</span><span class="p">:</span> <span class="s2">&quot;Jim Carrey&quot;</span><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#busca todos os registros que</span>
+</span><span class='line'><span class="c1">#tenham  no nome, parecido com o like no SQL</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="sr">/Débi*/i</span><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#busca todos os registros que</span>
+</span><span class='line'><span class="c1">#tenham Débi no nome, parecido com o like no SQL</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="sr">/Débi*/i</span><span class="p">});</span>
+</span><span class='line'><span class="c1">#definindo um objeto regex</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="p">{</span><span class="vg">$regex</span><span class="p">:</span> <span class="s1">&#39;Débi*&#39;</span><span class="p">,</span> <span class="vg">$options</span><span class="p">:</span> <span class="s1">&#39;i&#39;</span><span class="p">}});</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#busca todos os registros de users</span>
+</span><span class='line'><span class="c1">#filtrando as colunas que serão retornadas</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">null</span><span class="p">,</span> <span class="p">{</span><span class="n">nome</span><span class="p">:</span> <span class="mi">1</span><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Olhando o código acima você pode perceber que temos um elemento chamado &#8220;$regex&#8221;, que são operadores de avaliação. Assim como o &#8220;$regex&#8221; existem outros operadores entre eles: $where e $text. Para conhecer mais sobre estes operadores de avaliação <a href="http://docs.mongodb.org/manual/reference/operator/query-evaluation/">clique aqui</a>.</p>
+
+<p>Existem também operadores de comparação que nos permite realizar buscas com definições mais detalhadas. Ex: &#8220;>&#8221;, &#8220;>=&#8221;, &#8220;&lt;&#8221; e &#8220;&lt;=&#8221;.</p>
+
+<figure class='code'><figcaption><span>Find humilhador  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">idade</span><span class="p">:</span> <span class="p">{</span><span class="vg">$gte</span><span class="p">:</span> <span class="mi">50</span><span class="p">}});</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">idade</span><span class="p">:</span> <span class="p">{</span><span class="vg">$gte</span><span class="p">:</span> <span class="mi">54</span><span class="p">}});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>No site do MongoDB tem uma lista com todos os operadores de query, <a href="http://docs.mongodb.org/manual/reference/operator/query/">clique aqui</a> e veja como melhorar suas consultas usando esta excelente ferramenta (momento jabá hehehehe)</p>
+
+<h3>Update</h3>
+
+<figure class='code'><figcaption><span>Update demolidor  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="c1">#atualiza todos os usuários com </span>
+</span><span class='line'><span class="c1">#idade &gt;= 54 anos para 50 anos</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">idade</span><span class="p">:</span> <span class="p">{</span><span class="vg">$gte</span><span class="p">:</span> <span class="mi">54</span><span class="p">}},</span> <span class="p">{</span><span class="vg">$set</span><span class="p">:</span> <span class="p">{</span><span class="n">idade</span><span class="p">:</span> <span class="mi">50</span><span class="p">}});</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#atualiza todos os usuários com </span>
+</span><span class='line'><span class="c1">#idade &gt;= 50 anos para 20 anos</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">idade</span><span class="p">:</span> <span class="p">{</span><span class="vg">$gte</span><span class="p">:</span> <span class="mi">50</span><span class="p">}},</span> <span class="p">{</span><span class="vg">$set</span><span class="p">:</span> <span class="p">{</span><span class="n">idade</span><span class="p">:</span> <span class="mi">20</span><span class="p">}},</span> <span class="p">{</span><span class="n">multi</span><span class="p">:</span> <span class="kp">true</span><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>No primeiro exemplo acima de update ele altera a idade para 50 no primeiro documento que ele encontrar onde idade seja maior igual a 54. Já no segundo ele altera todos os documentos onde a idade seja maior igual a 50.</p>
+
+<h3>Deletar</h3>
+
+<figure class='code'><figcaption><span>Delete deletador :D  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="c1">#remove os documentos onde ator seja igual a Jim Carrey</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">remove</span><span class="p">({</span><span class="n">ator</span><span class="p">:</span> <span class="s2">&quot;Jim Carrey&quot;</span><span class="p">});</span>
+</span><span class='line'><span class="c1">#remove todos os documentos da coleção</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">remove</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Acho que ficou claro o papel do remove nas linhas acima neh? O papel dele é te dar um frio na barriga quando for executá-lo. :D</p>
+
+<h3>Mean IO</h3>
+
+<p>Para galera que está afim de desenvolver uma aplicação média de forma rápida e robusta existe o <a href="http://mean.io/">Mean IO</a> que é uma solução full-stack para ajudar nesse desenvolvimento. Ela é formada por MongoDB, Express, AngularJS e Node.js. No mínimo, ao final desta implementação, terá conhecido ferramentas maravilhosas e ampliado seus conhecimentos.</p>
+
+<center>
+<iframe src="https://giphy.com/embed/P40Gkig2OTlLy" width="500" height="375" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</center>
+
+
+<h3>App&#8217;s para gerenciar sua base MongoDB</h3>
+
+<ul>
+<li><a href="http://www.mongovue.com/">http://www.mongovue.com/</a></li>
+<li><a href="https://www.mongohq.com/">https://www.mongohq.com/</a></li>
+<li><a href="http://www.robomongo.org/">http://www.robomongo.org/</a></li>
+<li><a href="http://mongohub.todayclose.com/">http://mongohub.todayclose.com/</a></li>
+</ul>
+
+
+<h3>Considerações</h3>
+
+<p> Atualmente tenho usado em minha startup serviços NoSQL conhecidos como BaaS, eles ajudam bastante na hora de fornecer SDK&#8217;s e abstrair trabalhos rotineiros como ACL, Confirmação de email, Cadastro de usuário <a href="http://italoqueiroz.github.io/blog/2013/07/15/baas-backend-as-a-service/">clique aqui</a> para saber mais.</p>
+
+<p> Sei que existem várias ferramentas para definirmos nossa arquitetura e não acho que o MongoDB deva ser implementado em todos os seus projetos, mas com certeza você deverá levá-lo em consideração.</p>
+
+<p> Pretendo montar um exemplo em PHP, quando estiver diponível deixo o link aqui abaixo.</p>
+
+<center> 
+<iframe src="https://giphy.com/embed/AeWoyE3ZT90YM" width="500" height="210" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</center>
+
+
+<p></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[#SWBSB - StartUp Weekend Brasília]]></title>
