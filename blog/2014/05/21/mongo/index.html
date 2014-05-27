@@ -243,29 +243,29 @@ Se você tivesse uma gaveta com o nome &#8220;Gaveta de contratos&#8221; nela te
 <span class='line-number'>23</span>
 <span class='line-number'>24</span>
 </pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="c1">#busca todos os registros de users</span>
-</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">();</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">();</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">#busca todos os registros de users </span>
 </span><span class='line'><span class="c1">#e retorna o json formatado</span>
-</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">()</span><span class="o">.</span><span class="n">pretty</span><span class="p">();</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">()</span><span class="o">.</span><span class="n">pretty</span><span class="p">();</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">#busca todos os registros onde</span>
 </span><span class='line'><span class="c1">#ator seja igual a Jim Carrey</span>
-</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">ator</span><span class="p">:</span> <span class="s2">&quot;Jim Carrey&quot;</span><span class="p">});</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">ator</span><span class="p">:</span> <span class="s2">&quot;Jim Carrey&quot;</span><span class="p">});</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">#busca todos os registros que</span>
 </span><span class='line'><span class="c1">#tenham  no nome, parecido com o like no SQL</span>
-</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="sr">/Débi*/i</span><span class="p">});</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="sr">/Débi*/i</span><span class="p">});</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">#busca todos os registros que</span>
 </span><span class='line'><span class="c1">#tenham Débi no nome, parecido com o like no SQL</span>
-</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="sr">/Débi*/i</span><span class="p">});</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="sr">/Débi*/i</span><span class="p">});</span>
 </span><span class='line'><span class="c1">#definindo um objeto regex</span>
-</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="p">{</span><span class="vg">$regex</span><span class="p">:</span> <span class="s1">&#39;Débi*&#39;</span><span class="p">,</span> <span class="vg">$options</span><span class="p">:</span> <span class="s1">&#39;i&#39;</span><span class="p">}});</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="p">{</span><span class="vg">$regex</span><span class="p">:</span> <span class="s1">&#39;Débi*&#39;</span><span class="p">,</span> <span class="vg">$options</span><span class="p">:</span> <span class="s1">&#39;i&#39;</span><span class="p">}});</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">#busca todos os registros de users</span>
 </span><span class='line'><span class="c1">#filtrando as colunas que serão retornadas</span>
-</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">null</span><span class="p">,</span> <span class="p">{</span><span class="n">nome</span><span class="p">:</span> <span class="mi">1</span><span class="p">});</span>
+</span><span class='line'><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">null</span><span class="p">,</span> <span class="p">{</span><span class="n">nome</span><span class="p">:</span> <span class="mi">1</span><span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure>
 
 

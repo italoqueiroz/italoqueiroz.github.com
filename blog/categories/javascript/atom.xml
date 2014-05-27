@@ -4,7 +4,7 @@
   <title><![CDATA[Categoria: Javascript | Italo Queiroz]]></title>
   <link href="http://italoqueiroz.github.com/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
-  <updated>2014-05-26T12:42:07-03:00</updated>
+  <updated>2014-05-27T18:17:10-03:00</updated>
   <id>http://italoqueiroz.github.com/</id>
   <author>
     <name><![CDATA[Italo Queiroz]]></name>
@@ -54,7 +54,7 @@ $(document).ready(function(){</p>
 
 <pre><code>$("#element").handlebars({
   json: 'http://yourLocation.com.br/data.json', 
-  template:'&lt;div class="entry"&gt;&lt;h1&gt;jHandlebars&lt;/h1&gt;&lt;div class="body"&gt;&lt;/div&gt;&lt;/div&gt;'
+  template:'&lt;div class="entry"&gt;&lt;h1&gt;jHandlebars&lt;/h1&gt;&lt;div class="body"&gt;{{title}}&lt;/div&gt;&lt;/div&gt;'
 });
 </code></pre>
 
@@ -105,7 +105,7 @@ $(document).ready(function(){</p>
 
 <pre><code>$("#element").handlebars({
   json: {title:'Meu título'},
-  template:'&lt;div class="entry"&gt;&lt;h1&gt;jHandlebars&lt;/h1&gt;&lt;div class="body"&gt;&lt;/div&gt;&lt;/div&gt;'
+  template:'&lt;div class="entry"&gt;&lt;h1&gt;jHandlebars&lt;/h1&gt;&lt;div class="body"&gt;{{title}}&lt;/div&gt;&lt;/div&gt;'
 });
 </code></pre>
 
@@ -123,140 +123,81 @@ $(document).ready(function(){</p>
     <id>http://italoqueiroz.github.com/blog/2012/10/09/criando-templates-com-handlebars</id>
     <content type="html"><![CDATA[<p>Se você querido “manolo” leitor que quando utiliza javascript se “amarra” em misturar lógica com string’s que geram seu html.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Html misturado com a lógica  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="s2">&quot;&lt;div&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">&lt;pre&gt;&lt;code&gt;            &amp;lt;ul&amp;gt;</span>
-</span><span class='line'><span class="s2">                &amp;lt;li&amp;gt;1&amp;lt;/li&amp;gt;</span>
-</span><span class='line'><span class="s2">                &amp;lt;li&amp;gt;2&amp;lt;/li&amp;gt;</span>
-</span><span class='line'><span class="s2">                &amp;lt;li&amp;gt;3&amp;lt;/li&amp;gt;</span>
-</span><span class='line'><span class="s2">                &amp;lt;li&amp;gt;4&amp;lt;/li&amp;gt;</span>
-</span><span class='line'><span class="s2">            &amp;lt;/ul&amp;gt;</span>
-</span><span class='line'><span class="s2">        &amp;lt;/div&amp;gt;&quot;</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">//Bizarro :D eu sei     </span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>  <span class="k">if</span> <span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>   <span class="nx">html</span> <span class="o">+=</span> <span class="s1">&#39;&amp;lt;span&amp;gt; Coisa linda &amp;lt;/span&amp;gt;&#39;</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#target&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
-</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock Html misturado com a lógica lang:js %}
+var html = "<div></p>
+
+<pre><code>            &lt;ul&gt;
+                &lt;li&gt;1&lt;/li&gt;
+                &lt;li&gt;2&lt;/li&gt;
+                &lt;li&gt;3&lt;/li&gt;
+                &lt;li&gt;4&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;";
+
+//Bizarro :D eu sei     
+</code></pre>
+
+<p>  if (1 == 1) {</p>
+
+<pre><code>   html += '&lt;span&gt; Coisa linda &lt;/span&gt;';
+}
+
+$('#target').html(html);            
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>Venho então lhe propor uma solução que poderá mudar a sua vida de uma vez por todas. <span class="bobagem">(sei que isso foi bem tosco)</span></p>
 
 <p>Desde que comecei a postar tenho falado sobre templates javascript e dentre eles sobre o HandleBars, então pensei em montar este tutorial com o foco apenas em conhecermos o template e como é simples sua implementação.</p>
 
 <p>Começaremos criando uma estrutura de pasta conforme a imagem abaixo. <br />
-<img class="center" src="/images/criando_template_handlebars/estrutura.png" width="176"></p>
+{% img center /images/criando_template_handlebars/estrutura.png 176 %}</p>
 
 <p>Na nossa <strong>index.html</strong> criaremos um documento html padrão, adicionando algumas bibliotecas javascript (jQuery  e HandleBars) e com 2 div's, uma com id <strong>table</strong> e outra com id <strong>div</strong>.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>index.html  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="ni">&amp;lt;</span>!DOCTYPE HTML&gt;
-</span><span class='line'><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en-US&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'><span class="nt">&lt;head&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>meta charset=&quot;UTF-8&quot;<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>title<span class="ni">&amp;gt;&amp;lt;</span>/title<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;&lt;/head&gt;</span>
-</span><span class='line'><span class="nt">&lt;body&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>div<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>h3<span class="ni">&amp;gt;</span>Template 1 - Table<span class="ni">&amp;lt;</span>/h3<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>div id=&quot;table&quot;<span class="ni">&amp;gt;&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>div<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>h3<span class="ni">&amp;gt;</span>Template 2 - Div<span class="ni">&amp;lt;</span>/h3<span class="ni">&amp;gt;</span>
-</span><span class='line'>    <span class="ni">&amp;lt;</span>div id=&quot;div&quot;<span class="ni">&amp;gt;&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="ni">&amp;lt;</span>/div<span class="ni">&amp;gt;</span>
-</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;&lt;/body&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">&lt;!-- HandleBars Library--&gt;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.rc.1.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="c">&lt;!-- jQuery Library--&gt;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;&lt;/html&gt;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock index.html lang:html %}
+&lt;!DOCTYPE HTML>
+<html lang="en-US">
+<head></p>
+
+<pre><code>&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;&lt;/title&gt;
+</code></pre>
+
+<p></head>
+<body></p>
+
+<pre><code>&lt;div&gt;
+    &lt;h3&gt;Template 1 - Table&lt;/h3&gt;
+    &lt;div id="table"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;h3&gt;Template 2 - Div&lt;/h3&gt;
+    &lt;div id="div"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p></body></p>
+
+<!-- HandleBars Library-->
+
+
+<script type="text/javascript" src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.rc.1.js"></script>
+
+
+<!-- jQuery Library-->
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+
+<p></html>
+{% endcodeblock %}</p>
 
 <p>E montaremos nossos 2 arquivos de template (table.hb e div.hb) com os seguintes códigos.</p>
 
-<p>
+<p>{% raw %}
 ``` html table.hb</p>
 
 <pre><code>&lt;style type="text/css"&gt;
@@ -273,9 +214,9 @@ $(document).ready(function(){</p>
 </code></pre>
 
 <p>```
-</p>
+{% endraw %}</p>
 
-<p>
+<p>{% raw %}
 ``` html div.hb</p>
 
 <pre><code>&lt;style type="text/css"&gt;
@@ -300,7 +241,7 @@ $(document).ready(function(){</p>
 </code></pre>
 
 <p>```
-</p>
+{% endraw %}</p>
 
 <p>Como você deve ter notado, existem elementos que estão entre chaves duplas - { { nome } } – que são usadas sempre que quisermos imprimir o valor de um elemento. Caso estas chaves duplas venham referenciando um bloco de expressão - { { #each pessoas } } - é carregado este helper que pode ser um loop, uma formatação de impressão, condicionais - { { #if pessoas } } - e zas.</p>
 
@@ -308,7 +249,7 @@ $(document).ready(function(){</p>
 
 <p>Logo abaixo temos o código javascript que faz toda a mágica de chamar nossos templates. Tentarei explicar da melhor forma possível :D. Lembrando que o javascript poderia ter sido bem melhor elaborado, com funções para gerenciar nossos templates, mas achei melhor deixar isso para outro post e não complicar mais as coisas!!!</p>
 
-<p>
+<p>{% raw %}
 ``` js JS que chama nossos templates</p>
 
 <pre><code>$(function() {
@@ -360,7 +301,7 @@ $(document).ready(function(){</p>
 </code></pre>
 
 <p>```
-</p>
+{% endraw %}</p>
 
 <p>Resumidamente o que precisei fazer foi carregar meus arquivos .hb que poderiam ser qualquer outro tipo de extensão (Ex: table.html, table.italo, table.queiroz), o importante mesmo é o seu conteúdo.</p>
 
@@ -385,29 +326,23 @@ $(document).ready(function(){</p>
     <id>http://italoqueiroz.github.com/blog/2012/10/06/handlebars-ou-ejs</id>
     <content type="html"><![CDATA[<p>Atualmente aqui no trabalho estamos definindo uma framework para o lado cliente (somente HTML e JS) que possa salvar nossas vidas, que seja “componetizada”, de fácil uso e acima de tudo tenha pouca dependência no layout utilizado na página (podendo usar <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, <a href="http://foundation.zurb.com/">Foundation</a>, <a href="http://960.gs/">960.gs</a> e zas).</p>
 
-<p>
+<p>{% raw %}
 ``` js PQP</p>
 
 <pre><code>{{handlebars}}
 </code></pre>
 
 <p>```
-</p>
+{% endraw %}</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Inativando o cache  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">//Exemplo do site da engine HandleBars</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">source</span>   <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#entry-template&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">();</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="nx">Handlebars</span><span class="p">.</span><span class="nx">compile</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="p">{</span><span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;My New Post&quot;</span><span class="p">,</span> <span class="nx">body</span><span class="o">:</span> <span class="s2">&quot;This is my first post!&quot;</span><span class="p">}</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">html</span>    <span class="o">=</span> <span class="nx">template</span><span class="p">(</span><span class="nx">context</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock Inativando o cache lang:js %}
+//Exemplo do site da engine HandleBars
+var source   = $("#entry-template").html();
+var template = Handlebars.compile(source);</p>
+
+<p>var context = {title: "My New Post", body: "This is my first post!"}
+var html    = template(context);
+{% endcodeblock %}</p>
 
 <p>Em meio a elaboração do projeto nos deparamos com a necessidade de utilizar um template JS, eu já tinha trabalhado com <a href="http://embeddedjs.com/">EJS</a> mas estava fortemente voltado ao <a href="http://handlebarsjs.com/">HandleBars</a> (culpa do <a href="http://italoqueiroz.github.com/blog/2012/10/04/meteor/">Meteor</a>), sendo assim, fui dar uma googlada e percebi que existiam dezenas de engines de template e que o <a href="https://www.linkedin.com/">LinkedIn</a> tinha feito um comparativo com várias opções para definir o que eles usariam na parte de view do site (<a href="http://engineering.linkedin.com/frontend/client-side-templating-throwdown-mustache-handlebars-dustjs-and-more">clique aqui</a> para ver os resultados).</p>
 
@@ -415,12 +350,10 @@ $(document).ready(function(){</p>
 
 <p>Teve um ponto em específico levantado pela nossa equipe que me fizeram pensar 2 vezes antes de apoiar totalmente o HandleBars: “O CACHE”. No EJS para “cachear” um template é estupidamente simples pois já vem nativo já no HandleBars sua implementação é um pouco mais trabalhosa.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Inativando o cache  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">//Inativando o cache...</span>
-</span><span class='line'><span class="nx">EJS</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span><span class="nx">cache</span><span class="o">:</span> <span class="kc">false</span><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+<p>{% codeblock Inativando o cache lang:javascript %}
+//Inativando o cache...
+EJS.config({cache: false});
+{% endcodeblock %}</p>
 
 <p>Mas creio que para saber como funciona esse lance de template JS a melhor opção seja o EJS, é mais tranquilo de trabalhar (com coisas simples), caso a idéia (como é a do nosso framework) seja mexer com vários componentes criando helpers e plugins aconselho o HandleBars por ter uma documentação mais vasta já que ele veio do Mustache.</p>
 ]]></content>

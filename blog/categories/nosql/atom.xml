@@ -4,7 +4,7 @@
   <title><![CDATA[Categoria: NoSQL | Italo Queiroz]]></title>
   <link href="http://italoqueiroz.github.com/blog/categories/nosql/atom.xml" rel="self"/>
   <link href="http://italoqueiroz.github.com/"/>
-  <updated>2014-05-26T12:42:07-03:00</updated>
+  <updated>2014-05-27T18:17:01-03:00</updated>
   <id>http://italoqueiroz.github.com/</id>
   <author>
     <name><![CDATA[Italo Queiroz]]></name>
@@ -141,41 +141,41 @@ Se você tivesse uma gaveta com o nome "Gaveta de contratos" nela teriamos apena
 </span><span class='line'>
 </span><span class='line'><span class="sr">&lt;h1&gt;busca todos os registros de users&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">();</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">();</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="sr">&lt;h1&gt;busca todos os registros de users&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">e</span> <span class="n">retorna</span> <span class="n">o</span> <span class="n">json</span> <span class="n">formatado</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="sr">&lt;p&gt;db.users.find().pretty();&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="sr">&lt;p&gt;db.usuarios.find().pretty();&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">busca</span> <span class="n">todos</span> <span class="n">os</span> <span class="n">registros</span> <span class="n">onde</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="sr">&lt;h1&gt;ator seja igual a Jim Carrey&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">ator</span><span class="p">:</span> <span class="s2">&quot;Jim Carrey&quot;</span><span class="p">});</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">ator</span><span class="p">:</span> <span class="s2">&quot;Jim Carrey&quot;</span><span class="p">});</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="sr">&lt;h1&gt;busca todos os registros que&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">tenham</span>  <span class="n">no</span> <span class="n">nome</span><span class="p">,</span> <span class="n">parecido</span> <span class="n">com</span> <span class="n">o</span> <span class="n">like</span> <span class="n">no</span> <span class="no">SQL</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="sr">&lt;p&gt;db.users.find({nome: /</span><span class="n">D</span><span class="err">é</span><span class="n">bi</span><span class="o">*/</span><span class="n">i</span><span class="p">});</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'><span class="sr">&lt;p&gt;db.usuarios.find({nome: /</span><span class="n">D</span><span class="err">é</span><span class="n">bi</span><span class="o">*/</span><span class="n">i</span><span class="p">});</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="sr">&lt;h1&gt;busca todos os registros que&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">tenham</span> <span class="n">D</span><span class="err">é</span><span class="n">bi</span> <span class="n">no</span> <span class="n">nome</span><span class="p">,</span> <span class="n">parecido</span> <span class="n">com</span> <span class="n">o</span> <span class="n">like</span> <span class="n">no</span> <span class="no">SQL</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="sr">&lt;p&gt;db.users.find({nome: /</span><span class="n">D</span><span class="err">é</span><span class="n">bi</span><span class="o">*/</span><span class="n">i</span><span class="p">});</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'><span class="sr">&lt;p&gt;db.usuarios.find({nome: /</span><span class="n">D</span><span class="err">é</span><span class="n">bi</span><span class="o">*/</span><span class="n">i</span><span class="p">});</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="sr">&lt;h1&gt;definindo um objeto regex&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">db</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="p">{</span><span class="vg">$regex</span><span class="p">:</span> <span class="s1">&#39;Débi*&#39;</span><span class="p">,</span> <span class="vg">$options</span><span class="p">:</span> <span class="s1">&#39;i&#39;</span><span class="p">}});</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="n">db</span><span class="o">.</span><span class="n">usuarios</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="n">nome</span><span class="p">:</span> <span class="p">{</span><span class="vg">$regex</span><span class="p">:</span> <span class="s1">&#39;Débi*&#39;</span><span class="p">,</span> <span class="vg">$options</span><span class="p">:</span> <span class="s1">&#39;i&#39;</span><span class="p">}});</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="sr">&lt;h1&gt;busca todos os registros de users&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">filtrando</span> <span class="n">as</span> <span class="n">colunas</span> <span class="n">que</span> <span class="n">ser</span><span class="err">ã</span><span class="n">o</span> <span class="n">retornadas</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="sr">&lt;p&gt;db.users.find(null, {nome: 1});&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="sr">&lt;p&gt;db.usuarios.find(null, {nome: 1});&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
